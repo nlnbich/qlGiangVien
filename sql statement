@@ -1,0 +1,5 @@
+create table account( username varchar(20) not null primary key, password varchar(20) not null, role varchar(20) check (role in ('admin', 'user')  ) );
+
+
+select count(*) as num from information_schema.tables where table_schema='mydb' ;
+

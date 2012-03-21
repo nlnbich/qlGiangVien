@@ -1,0 +1,41 @@
+@import url(../reindeer/styles.css);
+
+* {
+	margin : 0px auto ;	
+}
+
+
+
+.topPanel{
+	
+	background:#5d9ab2 url('../qlgiangvientheme/img/top_panel.jpg') no-repeat top left;
+}
+.bottomPanel{
+	background: #5d9ab2 ;
+}
+
+/*	mainMenu widgets*/
+
+.v-menubar {
+    font-size : 120% ;    
+    margin: 5px 0px 10px 0px;
+}
+
+
+/* leftMenu widgets*/
+.leftMenu{
+	padding:20px 0;
+}
+
+/* the content of left and main content */
+.bl-mainContent{
+	padding: 20px 0;
+}
+
+/* topLogin panel*/
+.bl-topPanelLogin > v-button-wrap{
+	
+background-color: transparent;
+    
+}
+
