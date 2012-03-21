@@ -9,7 +9,7 @@ import com.vaadin.data.util.BeanItemContainer;
 import com.vaadin.terminal.Sizeable;
 import com.vaadin.ui.*;
 
-public class WindowDetaitheonam extends Window implements Constants {
+public class WindowSogiangvientheotungbomon1 extends Window implements Constants {
 	
 
 	private static final long serialVersionUID = 1L;	
@@ -18,7 +18,7 @@ public class WindowDetaitheonam extends Window implements Constants {
 	
 	
 	
-	public WindowDetaitheonam() {
+	public WindowSogiangvientheotungbomon1() {
 
 		
 		setCaption("Thong ke de tai theo nam ");//Constants.USER_CAPTION) ;
@@ -52,7 +52,7 @@ public class WindowDetaitheonam extends Window implements Constants {
 		
 		
 		//--------------------bl
-		Label title = new Label("<center><h1>Thong ke de tai theo nam<h1></center>", Label.CONTENT_XHTML) ;
+		Label title = new Label("<center><h1>thống kê theo bộ môn<h1></center>", Label.CONTENT_XHTML) ;
 
 		final BeanItemContainer<ResearchingBean> beans = new BeanItemContainer<ResearchingBean>(ResearchingBean.class);
 
