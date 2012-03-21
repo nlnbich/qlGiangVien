@@ -1,4 +1,4 @@
-package cit.group10.qlGiangvien.searching;
+package cit.group10.qlGiangvien.statistics;
 
 import cit.group10.qlGiangvien.constants.Constants;
 import cit.group10.qlGiangvien.widgets.*;
