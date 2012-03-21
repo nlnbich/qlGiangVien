@@ -23,8 +23,8 @@ public interface Constants {
 		{},			
 		{"Thong tin ca nhan", "Thong tin cong tac","Thong tin hoc ham, hoc vi", "Thong tin bo mon", "Khen thuong, ky luat"},
 		{"Danh sach de tai", "Dang ky de tai moi"},
-		{"So de tai trong thang", "So de tai trong nam", "Giang vien theo tung bo mon", "Giang vien theo hoc ham, hoc vi"},
-		{"Theo ten", "Theo ma so", "Bo mon", "Don vi cong tac"}
+		{"So de tai trong nam", "So giang vien theo tung bo mon", "So giang vien theo hoc ham, hoc vi"},
+		{"Tim theo ten", "Tim theo bo mon", "Tim theo hoc ham, hoc vi"}
 	};
 	static final String[] MAIN_MENU_TEXT_ADMIN_ICON ={"img/home.png", "img/personal.png","img/research.png", "img/statistics.png", "img/search.png"};
 	

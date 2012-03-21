@@ -104,18 +104,18 @@ public class mainMenu extends CustomComponent implements Constants {
 					);
 			
 			
-			if (userRole.equals(Constants.PERMISSION.ADMIN)){		
-			
-				newWindow=menuAdminClickFunction(selectedItem) ;
-			}			
-			else{		
-				newWindow=menuUserClickFunction(selectedItem) ;
-			}	
-			
-			
-			
-			if ( !getApplication().getMainWindow().equals(newWindow) )
-				QlgiangvienApplication.getInstance().setNewWindow(newWindow) ;
+//			if (userRole.equals(Constants.PERMISSION.ADMIN)){		
+//			
+//				newWindow=menuAdminClickFunction(selectedItem) ;
+//			}			
+//			else{		
+//				newWindow=menuUserClickFunction(selectedItem) ;
+//			}	
+//			
+//			
+//			
+//			if ( !getApplication().getMainWindow().equals(newWindow) )
+//				QlgiangvienApplication.getInstance().setNewWindow(newWindow) ;
 		}
 		
     };
