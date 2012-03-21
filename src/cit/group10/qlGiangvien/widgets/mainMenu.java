@@ -8,6 +8,8 @@ import cit.group10.qlGiangvien.constants.*;
 import cit.group10.qlGiangvien.detailedInfo.researching.WindowRegistedResearching;
 import cit.group10.qlGiangvien.detailedInfo.researching.WindowResearching;
 import cit.group10.qlGiangvien.statistics.WindowDetaitheonam;
+import cit.group10.qlGiangvien.statistics.WindowSogiangvientheohochamhocvi;
+import cit.group10.qlGiangvien.statistics.WindowSogiangvientheotungbomon1;
 
 import com.vaadin.terminal.ExternalResource;
 import com.vaadin.terminal.Sizeable;
@@ -150,6 +152,14 @@ public class mainMenu extends CustomComponent implements Constants {
 			newWindow = new WindowDetaitheonam();					
 			newWindow.setName(url_parent+selectedItem.getText()) ;
 			break ;
+		case 14:
+			newWindow = new WindowSogiangvientheotungbomon1();					
+			newWindow.setName(url_parent+selectedItem.getText()) ;
+			break ;	
+		case 15:
+			newWindow = new WindowSogiangvientheohochamhocvi();					
+			newWindow.setName(url_parent+selectedItem.getText()) ;
+			break ;		
 			
 		default:
 			newWindow = new AdminFunctions();		
