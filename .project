@@ -39,4 +39,11 @@
 		<nature>org.eclipse.wst.jsdt.core.jsNature</nature>
 		<nature>com.vaadin.integration.eclipse.widgetsetNature</nature>
 	</natures>
+	<linkedResources>
+		<link>
+			<name>WebContent/VAADIN/themes/qlgiangvientheme/img/top_panel.jpg</name>
+			<type>1</type>
+			<location>/media/DATA/2012/Nhap mon cong nghe phan mem/hinh/headder.jpg</location>
+		</link>
+	</linkedResources>
 </projectDescription>
