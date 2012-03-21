@@ -7,6 +7,7 @@ import cit.group10.qlGiangvien.UserFunctions;
 import cit.group10.qlGiangvien.constants.*;
 import cit.group10.qlGiangvien.detailedInfo.researching.WindowRegistedResearching;
 import cit.group10.qlGiangvien.detailedInfo.researching.WindowResearching;
+import cit.group10.qlGiangvien.statistics.WindowDetaitheonam;
 
 import com.vaadin.terminal.ExternalResource;
 import com.vaadin.terminal.Sizeable;
@@ -98,24 +99,26 @@ public class mainMenu extends CustomComponent implements Constants {
 			
 			Window newWindow ;
 			
+			if (userRole.equals(Constants.PERMISSION.ADMIN)){		
+			
+				newWindow=menuAdminClickFunction(selectedItem) ;
+			}			
+			else{		
+				newWindow=menuUserClickFunction(selectedItem) ;
+			}	
+			
+			
+			
+			if ( !getApplication().getMainWindow().equals(newWindow) )
+				QlgiangvienApplication.getInstance().setNewWindow(newWindow) ;
+			
+			
+			
 			getWindow().showNotification("in user Action " + selectedItem.getText()
 					+ selectedItem.getId() +"--"
 					+ getApplication().getMainWindow().getClass()					
 					);
 			
-			
-//			if (userRole.equals(Constants.PERMISSION.ADMIN)){		
-//			
-//				newWindow=menuAdminClickFunction(selectedItem) ;
-//			}			
-//			else{		
-//				newWindow=menuUserClickFunction(selectedItem) ;
-//			}	
-//			
-//			
-//			
-//			if ( !getApplication().getMainWindow().equals(newWindow) )
-//				QlgiangvienApplication.getInstance().setNewWindow(newWindow) ;
 		}
 		
     };
@@ -135,17 +138,22 @@ public class mainMenu extends CustomComponent implements Constants {
 			
 		
 		
-		case 10:
-			newWindow = new WindowResearching();					
-			newWindow.setName(url_parent+selectedItem.getText()) ;					
-			break;
-		case 11:
-			newWindow = new WindowRegistedResearching();					
+//		case 10:
+//			newWindow = new WindowResearching();					
+//			newWindow.setName(url_parent+selectedItem.getText()) ;					
+//			break;
+//		case 11:
+//			newWindow = new WindowRegistedResearching();					
+//			newWindow.setName(url_parent+selectedItem.getText()) ;
+//			break ;
+		case 13:
+			newWindow = new WindowDetaitheonam();					
 			newWindow.setName(url_parent+selectedItem.getText()) ;
+			break ;
 			
 		default:
 			newWindow = new AdminFunctions();		
-			newWindow.setName(url_parent +selectedItem.getText()) ;
+//			newWindow.setName(url_parent +selectedItem.getText()) ;
 //			QlgiangvienApplication.getInstance().setNewWindow(newWindow) ;					
 				
 		}//end of switch
@@ -174,8 +182,8 @@ public class mainMenu extends CustomComponent implements Constants {
 			
 			
 		default:
-			newWindow = new WindowRegistedResearching();		
-			newWindow.setName(url_parent +selectedItem.getText()) ;
+			newWindow = new Window();		
+////			newWindow.setName(url_parent +selectedItem.getText()) ;
 //			QlgiangvienApplication.getInstance().setNewWindow(newWindow) ;					
 				
 		}//end of switch

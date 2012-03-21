@@ -167,10 +167,11 @@ public class QlgiangvienApplication extends Application implements Constants,dbC
 		Window current = this.getMainWindow() ;				
 		
 		addWindow(layoutWindow);
+		
 		getMainWindow().open(new ExternalResource(layoutWindow.getURL()));
 		setMainWindow(layoutWindow);
 		
-		removeWindow(current) ;
+//		removeWindow(current) ;
 		
 		
 	}

@@ -1,6 +1,7 @@
 package cit.group10.qlGiangvien.statistics;
 
 import cit.group10.qlGiangvien.constants.Constants;
+import cit.group10.qlGiangvien.detailedInfo.researching.ResearchingBean;
 import cit.group10.qlGiangvien.widgets.*;
 
 
@@ -45,17 +46,24 @@ public class WindowDetaitheonam extends Window implements Constants {
 			
 		addComponent(new topLogin()) ;
 		addComponent(new topPanel()) ;		
-		addComponent(new mainMenu(PERMISSION.USER)) ;
+		addComponent(new mainMenu(PERMISSION.ADMIN)) ;
 		addComponent(v) ;		
 		addComponent(new bottom()) ;
 		
 		
 		//--------------------bl
 		Label title = new Label("<center><h1>Thong ke de tai theo nam<h1></center>", Label.CONTENT_XHTML) ;
-//		
-//		
-//		
-//		
+
+		final BeanItemContainer<ResearchingBean> beans = new BeanItemContainer<ResearchingBean>(ResearchingBean.class);
+
+		Table table = new Table("thong ke",beans) ;
+		
+		table.setWidth("100%") ;
+		table.setPageLength(10) ;
+		
+		rContent.addComponent(title) ;
+		rContent.addComponent(table) ;
+
 		
 		
 		

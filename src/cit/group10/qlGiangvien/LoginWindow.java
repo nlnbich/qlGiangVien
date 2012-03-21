@@ -23,8 +23,8 @@ public class LoginWindow extends Window implements Constants{
 		heading.setContentMode(Label.CONTENT_XHTML) ;
 		heading.setValue(TITLE_LOGIN) ;	
 		
-		loginField = new TextField("Login", "user");
-		passwordField = new PasswordField("Password", "12345");
+		loginField = new TextField("Login", "admin");
+		passwordField = new PasswordField("Password", "admin");
 		submitButton = new Button("Submit");
 		lblError = new Label(" ") ; 
 		link = new Link("Quen mat khau ?", null) ;
