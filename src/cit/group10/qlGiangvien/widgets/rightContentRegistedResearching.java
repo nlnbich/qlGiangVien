@@ -73,9 +73,9 @@ public class rightContentRegistedResearching extends CustomComponent {
 		tableListWhoWith.setColumnFooter("value", "value") ;
 		tableListWhoWith.setFooterVisible(true) ;
 	
-		final BeanItemContainer<TeacherBean> beans = new BeanItemContainer<TeacherBean>(TeacherBean.class);
+//		final BeanItemContainer<TeacherBean> beans = new BeanItemContainer<TeacherBean>(TeacherBean.class);
 
-		tableListWhoWith.setContainerDataSource(beans) ;
+//		tableListWhoWith.setContainerDataSource(beans) ;
 		
 //		Table.
 		
@@ -85,7 +85,7 @@ public class rightContentRegistedResearching extends CustomComponent {
 			@Override
 			public void buttonClick(ClickEvent event) {
 				
-				beans.addBean(new TeacherBean()) ;
+//				beans.addBean(new TeacherBean()) ;
 				
 			}
 		});
