@@ -24,23 +24,23 @@ public class CompletedDatabase implements dbConnect {
 		System.out.println("start create database ");
 
 		try {
-			Class.forName("com.mysql.jdbc.Driver");
+//			Class.forName("com.mysql.jdbc.Driver");
+//
+//			System.out.println("start program");
+//
+//			Connection conn = null;
+//			Statement stmt = null;
+//
+//			conn = DriverManager.getConnection(DB_URL, USER, PASS);
+//			
+//			
+//			stmt = conn.createStatement();
+//			String sql;
+//			
+//			String counttb = "select count(*) as num "
+//					+ "from information_schema.tables where table_schema='mydb' ";
 
-			System.out.println("start program");
-
-			Connection conn = null;
-			Statement stmt = null;
-
-			conn = DriverManager.getConnection(DB_URL, USER, PASS);
-			
-			
-			stmt = conn.createStatement();
-			String sql;
-			
-			String counttb = "select count(*) as num "
-					+ "from information_schema.tables where table_schema='mydb' ";
-
-			ResultSet rs = stmt.executeQuery(counttb);
+//			ResultSet rs = stmt.executeQuery(counttb);
 			// rs.next() ;
 			//
 			//
@@ -55,12 +55,12 @@ public class CompletedDatabase implements dbConnect {
 			// // System.out.println(", Last: " + last);
 			// }//while
 
-			System.out
-					.println("number of tables:" + rs.getInt("num") + counttb);
-
-			rs.close(); // Đóng cơ sở dữ liệu
-			stmt.close();
-			conn.close();
+//			System.out
+//					.println("number of tables:" + rs.getInt("num") + counttb);
+//
+//			rs.close(); // Đóng cơ sở dữ liệu
+//			stmt.close();
+//			conn.close();
 
 		} catch (Exception e) {
 			// TODO Auto-generated catch block

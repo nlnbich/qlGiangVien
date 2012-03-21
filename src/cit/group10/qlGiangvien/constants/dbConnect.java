@@ -4,7 +4,7 @@ public interface dbConnect {
 	
 	
 	static final String JDBC_DRIVER = "com.mysql.jdbc.Driver";  
-	static final String DB_URL = "jdbc:mysql://localhost/mydb";;
+	static final String DB_URL = "jdbc:mysql://localhost/dbqlGiangvien";;
 	static final String USER = "root";
 	static final String PASS = "root";
 	
