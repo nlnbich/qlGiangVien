@@ -1,4 +1,4 @@
-package cit.group10.qlGiangvien.detailedInfo.researching;
+package cit.group10.qlGiangvien.detailedInfo;
 
 import java.io.Serializable;
 

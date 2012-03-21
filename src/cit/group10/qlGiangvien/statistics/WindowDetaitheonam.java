@@ -1,7 +1,7 @@
 package cit.group10.qlGiangvien.statistics;
 
 import cit.group10.qlGiangvien.constants.Constants;
-import cit.group10.qlGiangvien.detailedInfo.researching.ResearchingBean;
+import cit.group10.qlGiangvien.detailedInfo.ResearchingBean;
 import cit.group10.qlGiangvien.widgets.*;
 
 

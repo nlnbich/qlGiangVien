@@ -5,8 +5,8 @@ import cit.group10.qlGiangvien.LoginWindow;
 import cit.group10.qlGiangvien.QlgiangvienApplication;
 import cit.group10.qlGiangvien.UserFunctions;
 import cit.group10.qlGiangvien.constants.*;
-import cit.group10.qlGiangvien.detailedInfo.researching.WindowRegistedResearching;
-import cit.group10.qlGiangvien.detailedInfo.researching.WindowResearching;
+import cit.group10.qlGiangvien.detailedInfo.WindowRegistedResearching;
+import cit.group10.qlGiangvien.detailedInfo.WindowResearching;
 import cit.group10.qlGiangvien.statistics.WindowDetaitheonam;
 
 import com.vaadin.terminal.ExternalResource;
