@@ -21,7 +21,7 @@ public class WindowDetaitheonam extends Window implements Constants {
 	public WindowDetaitheonam() {
 
 		
-		setCaption("Thong ke de tai theo nam ");//Constants.USER_CAPTION) ;
+		setCaption("Thống kê đề tài theo năm");//Constants.USER_CAPTION) ;
 		
 		
 		HorizontalLayout mainLayout = new HorizontalLayout() ;	
@@ -52,11 +52,11 @@ public class WindowDetaitheonam extends Window implements Constants {
 		
 		
 		//--------------------bl
-		Label title = new Label("<center><h1>Thong ke de tai theo nam<h1></center>", Label.CONTENT_XHTML) ;
+		Label title = new Label("<center><h1>Thống kê đề tài theo năm<h1></center>", Label.CONTENT_XHTML) ;
 
 		final BeanItemContainer<ResearchingBean> beans = new BeanItemContainer<ResearchingBean>(ResearchingBean.class);
 
-		Table table = new Table("thong ke",beans) ;
+		Table table = new Table("Thống kê",beans) ;
 		
 		table.setWidth("100%") ;
 		table.setPageLength(10) ;

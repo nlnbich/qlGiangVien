@@ -21,7 +21,7 @@ public class WindowSogiangvientheotungbomon1 extends Window implements Constants
 	public WindowSogiangvientheotungbomon1() {
 
 		
-		setCaption("Thong ke de tai theo nam ");//Constants.USER_CAPTION) ;
+		setCaption("Thống kê số giảng viên theo từng bộ môn");//Constants.USER_CAPTION) ;
 		
 		
 		HorizontalLayout mainLayout = new HorizontalLayout() ;	
@@ -52,11 +52,11 @@ public class WindowSogiangvientheotungbomon1 extends Window implements Constants
 		
 		
 		//--------------------bl
-		Label title = new Label("<center><h1>thống kê theo bộ môn<h1></center>", Label.CONTENT_XHTML) ;
+		Label title = new Label("<center><h1>Thống kê số giảng viên theo từng bộ môn<h1></center>", Label.CONTENT_XHTML) ;
 
 		final BeanItemContainer<ResearchingBean> beans = new BeanItemContainer<ResearchingBean>(ResearchingBean.class);
 
-		Table table = new Table("thong ke",beans) ;
+		Table table = new Table("Thống kê",beans) ;
 		
 		table.setWidth("100%") ;
 		table.setPageLength(10) ;

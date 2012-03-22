@@ -51,7 +51,7 @@ public class TopicWindow extends Window implements Constants {
 		
 		
 		//--------------------bl
-		Label title = new Label("<center><h1>So de tai trong nam<h1></center>", Label.CONTENT_XHTML) ;
+		Label title = new Label("<center><h1>Số đề tài trong năm<h1></center>", Label.CONTENT_XHTML) ;
 //		
 //		
 //		

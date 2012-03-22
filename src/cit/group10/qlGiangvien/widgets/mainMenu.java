@@ -7,6 +7,9 @@ import cit.group10.qlGiangvien.UserFunctions;
 import cit.group10.qlGiangvien.constants.*;
 import cit.group10.qlGiangvien.detailedInfo.researching.WindowRegistedResearching;
 import cit.group10.qlGiangvien.detailedInfo.researching.WindowResearching;
+import cit.group10.qlGiangvien.searching.WindowTimtheobomon;
+import cit.group10.qlGiangvien.searching.WindowTimtheohochamhocvi;
+import cit.group10.qlGiangvien.searching.WindowTimtheoten;
 import cit.group10.qlGiangvien.statistics.WindowDetaitheonam;
 import cit.group10.qlGiangvien.statistics.WindowSogiangvientheohochamhocvi;
 import cit.group10.qlGiangvien.statistics.WindowSogiangvientheotungbomon1;
@@ -135,11 +138,7 @@ public class mainMenu extends CustomComponent implements Constants {
 			newWindow = new AdminFunctions();					
 			newWindow.setName(url_parent+selectedItem.getText()) ;					
 			break;
-			
-			
-			
-		
-		
+
 //		case 10:
 //			newWindow = new WindowResearching();					
 //			newWindow.setName(url_parent+selectedItem.getText()) ;					
@@ -158,6 +157,18 @@ public class mainMenu extends CustomComponent implements Constants {
 			break ;	
 		case 15:
 			newWindow = new WindowSogiangvientheohochamhocvi();					
+			newWindow.setName(url_parent+selectedItem.getText()) ;
+			break ;		
+		case 17:
+			newWindow = new WindowTimtheoten();					
+			newWindow.setName(url_parent+selectedItem.getText()) ;
+			break ;		
+		case 18:
+			newWindow = new WindowTimtheobomon();					
+			newWindow.setName(url_parent+selectedItem.getText()) ;
+			break ;	
+		case 19:
+			newWindow = new WindowTimtheohochamhocvi();					
 			newWindow.setName(url_parent+selectedItem.getText()) ;
 			break ;		
 			

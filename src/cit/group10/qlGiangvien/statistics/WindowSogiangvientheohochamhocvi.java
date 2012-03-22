@@ -21,7 +21,7 @@ public class WindowSogiangvientheohochamhocvi extends Window implements Constant
 	public WindowSogiangvientheohochamhocvi() {
 
 		
-		setCaption("Thong ke so giang vien theo hoc ham, hoc vi");//Constants.USER_CAPTION) ;
+		setCaption("Thống kê số giảng viên theo học hàm, học vị");//Constants.USER_CAPTION) ;
 		
 		
 		HorizontalLayout mainLayout = new HorizontalLayout() ;	
@@ -52,11 +52,11 @@ public class WindowSogiangvientheohochamhocvi extends Window implements Constant
 		
 		
 		//--------------------bl
-		Label title = new Label("<center><h1>Thong ke so giang vien theo hoc ham, hoc vi<h1></center>", Label.CONTENT_XHTML) ;
+		Label title = new Label("<center><h1>Thống kê số giảng viên theo học hàm, học vị<h1></center>", Label.CONTENT_XHTML) ;
 
 		final BeanItemContainer<ResearchingBean> beans = new BeanItemContainer<ResearchingBean>(ResearchingBean.class);
 
-		Table table = new Table("thong ke",beans) ;
+		Table table = new Table("Thống kê",beans) ;
 		
 		table.setWidth("100%") ;
 		table.setPageLength(10) ;

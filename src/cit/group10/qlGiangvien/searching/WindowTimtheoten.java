@@ -1,6 +1,7 @@
 package cit.group10.qlGiangvien.searching;
 
 import cit.group10.qlGiangvien.constants.Constants;
+import cit.group10.qlGiangvien.detailedInfo.researching.ResearchingBean;
 import cit.group10.qlGiangvien.widgets.*;
 
 
@@ -8,7 +9,7 @@ import com.vaadin.data.util.BeanItemContainer;
 import com.vaadin.terminal.Sizeable;
 import com.vaadin.ui.*;
 
-public class NameWindow extends Window implements Constants {
+public class WindowTimtheoten extends Window implements Constants {
 	
 
 	private static final long serialVersionUID = 1L;	
@@ -17,10 +18,10 @@ public class NameWindow extends Window implements Constants {
 	
 	
 	
-	public NameWindow() {
+	public WindowTimtheoten() {
 
 		
-		setCaption("researching ");//Constants.USER_CAPTION) ;
+		setCaption("Tìm theo tên ");//Constants.USER_CAPTION) ;
 		
 		
 		HorizontalLayout mainLayout = new HorizontalLayout() ;	
@@ -45,17 +46,24 @@ public class NameWindow extends Window implements Constants {
 			
 		addComponent(new topLogin()) ;
 		addComponent(new topPanel()) ;		
-		addComponent(new mainMenu(PERMISSION.USER)) ;
+		addComponent(new mainMenu(PERMISSION.ADMIN)) ;
 		addComponent(v) ;		
 		addComponent(new bottom()) ;
 		
 		
 		//--------------------bl
-		Label title = new Label("<center><h1>Danh sách đề tài<h1></center>", Label.CONTENT_XHTML) ;
-//		
-//		
-//		
-//		
+		Label title = new Label("<center><h1>Tìm theo tên<h1></center>", Label.CONTENT_XHTML) ;
+
+		final BeanItemContainer<ResearchingBean> beans = new BeanItemContainer<ResearchingBean>(ResearchingBean.class);
+
+		Table table = new Table("Tìm kiếm",beans) ;
+		
+		table.setWidth("100%") ;
+		table.setPageLength(10) ;
+		
+		rContent.addComponent(title) ;
+		rContent.addComponent(table) ;
+
 		
 		
 		

@@ -51,7 +51,7 @@ public class WindowResearching extends Window implements Constants {
 		
 		
 		//--------------------bl
-		Label title = new Label("<center><h1>Danh sach de tai<h1></center>", Label.CONTENT_XHTML) ;
+		Label title = new Label("<center><h1>Danh sách đề tài<h1></center>", Label.CONTENT_XHTML) ;
 //		
 //		
 //		

@@ -9,22 +9,22 @@ public interface Constants {
 	
 	//user
 	static final String[][] MAIN_MENU_TEXT_USER ={ 
-			{"Trang chu", "Thong tin giang vien", "De tai nghien cuu"},
+			{"Trang chủ", "Thông tin giảng viên", "Đề tài nghiên cứu"},
 			{},			
-			{"Thong tin ca nhan", "Thong tin cong tac","Thong tin hoc ham, hoc vi", "Thong tin bo mon", "Khen thuong, ky luat"},
-			{"De tai da lam", "Dang ky de tai moi"}			
+			{"Thông tin cá nhân", "Thông tin công tác","Thông tin học hàm, học vị", "Thông tin bộ môn", "Khen thưởng, kỷ luật"},
+			{"Đề tài đã làm", "Đăng ký đề tài mới"}			
 		};
 	static final String[] MAIN_MENU_TEXT_USER_ICON ={"img/home.png", "img/personal.png", "img/research.png"};
 			
 	
 	//admin
 	static final String[][] MAIN_MENU_TEXT_ADMIN={ 
-		{"Trang chu", "Thong tin giang vien", "De tai nghien cuu","Thong ke", "Tim kiem" },
+		{"Trang chủ", "Thông tin giảng viên", "Đề tài nghiên cứu","Thống kê", "Tìm kiếm" },
 		{},			
-		{"Thong tin ca nhan", "Thong tin cong tac","Thong tin hoc ham, hoc vi", "Thong tin bo mon", "Khen thuong, ky luat"},
-		{"Danh sach de tai", "Dang ky de tai moi"},
-		{"So de tai trong nam", "So giang vien theo tung bo mon", "So giang vien theo hoc ham, hoc vi"},
-		{"Tim theo ten", "Tim theo bo mon", "Tim theo hoc ham, hoc vi"}
+		{"Thông tin cá nhân", "Thông tin công tác","Thông tin học hàm, học vị", "Thông tin bộ môn", "Khen thưởng, kỷ luật"},
+		{"Danh sách đề tài", "Đăng ký đề tài mới"},
+		{"Số đề tài trong năm", "Số giảng viên theo từng bộ môn", "Số giảng viên theo học hàm, học vị"},
+		{"Tìm theo tên", "Tìm theo bộ môn", "Tìm theo học hàm, học vị"}
 	};
 	static final String[] MAIN_MENU_TEXT_ADMIN_ICON ={"img/home.png", "img/personal.png","img/research.png", "img/statistics.png", "img/search.png"};
 	
@@ -37,16 +37,16 @@ public interface Constants {
 	
 	static enum LEFT_MEN_INDEX{USER, ADMIN, INFO, SEARCH, STATISTICS } ; 
 	
-	static final String[] USER_INFO_LIST ={"Thong tin ca nhan", "Thong tin giang day", "Thong tin hoc ham, hoc vi"} ;
+	static final String[] USER_INFO_LIST ={"Thông tin cá nhân", "Thông tin giảng dạy", "Thông tin học hàm, học vị"} ;
 	
 	
 	
 	
 	
 	//caption
-	static final String MAIN_CAPTION = "Thong tin giang vien" ;
-	static final String ADMIN_CAPTION = "Thong tin quan ly" ;
-	static final String USER_CAPTION = "Thong tin giang vien" ;
+	static final String MAIN_CAPTION = "Thông tin giảng viên" ;
+	static final String ADMIN_CAPTION = "Thông tin quản lý" ;
+	static final String USER_CAPTION = "Thông tin giảng viên" ;
 	
 	
 	
@@ -59,21 +59,21 @@ public interface Constants {
 	
 	
 	//top panel
-	static final String LOGOUT = "Thoat" ;
-	static final String SETTING = "Cai dat ca nhan" ;
+	static final String LOGOUT = "Thoát" ;
+	static final String SETTING = "Cài đặt cá nhân" ;
 	
 	
 	//bottom
-	static final String BOTTOM_LINE1 = "Khoa Cong Nghe Thong Tin & Truyen Thong" ;
-	static final String BOTTOM_LINE2 = "Nhom 10 - He Thong Thong Tin K17";
+	static final String BOTTOM_LINE1 = "Khoa Công Nghệ Thông Tin & Truyền Thông" ;
+	static final String BOTTOM_LINE2 = "Nhóm 10 - Hệ Thống Thông Tin K17";
 	static final String BOTTOM_LINE3 = "2011-2012";
-	static final String DESIGN_BY = "Design by : Group 10 Cao Hoc He Thong Thong Tin K17-2012";
+	static final String DESIGN_BY = "Design by : Group 10 Cao Học Hệ Thống Thông Tin K17-2012";
 	
 	
 	//login page
-	static final String TITLE_LOGIN = "<h1>Dang nhap he thong</h1>" ;
-	static final String NEW_PASSWORD = "Quen mat khau" ;
-	static final String LOGIN_FAIL = "Thong tin sai. Vui long thu lai" ;
+	static final String TITLE_LOGIN = "<h1>Đăng nhập hệ thống</h1>" ;
+	static final String NEW_PASSWORD = "Quên mật khẩu" ;
+	static final String LOGIN_FAIL = "Thông tin sai. Vui lòng thử lại" ;
 	
 	
 	
