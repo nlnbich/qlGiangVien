@@ -36,6 +36,11 @@
 .bl-topPanelLogin > v-button-wrap{
 	
 background-color: transparent;
-    
 }
+
+
+.bl-center{
+	align : center ;
+}
+
 

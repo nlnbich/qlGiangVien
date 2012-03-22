@@ -10,7 +10,6 @@ import com.vaadin.ui.*;
 
 public class AdminFunctions extends Window {
 	
-	VerticalLayout mainWindow ;
 	
 	public AdminFunctions() {
 		

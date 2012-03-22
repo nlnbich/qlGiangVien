@@ -36,6 +36,8 @@ public class LoginWindow extends Window implements Constants{
 		formLayout.addComponent(submitButton);
 		formLayout.addComponent(link);
 		formLayout.addComponent(lblError);
+
+		
 		
 		VerticalLayout loginForm = new VerticalLayout() ;
 		loginForm.setWidth("-1px") ;
@@ -55,9 +57,7 @@ public class LoginWindow extends Window implements Constants{
 		
 
 		submitButton.addListener(new Button.ClickListener() {			
-			/**
-			 * 
-			 */
+			
 			private static final long serialVersionUID = 1L;
 
 			@Override

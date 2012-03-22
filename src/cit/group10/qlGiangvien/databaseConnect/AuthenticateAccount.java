@@ -114,7 +114,7 @@ public class AuthenticateAccount implements dbConnect {
 			
 			
 			String sql = "select count(*) as num "
-					+ "from information_schema.tables where table_schema='mydb' ";
+					+ "from information_schema.tables where table_schema='"+DB_USED+ "' ";
 
 			ResultSet rs = stmt.executeQuery(sql);
 			rs.next() ;

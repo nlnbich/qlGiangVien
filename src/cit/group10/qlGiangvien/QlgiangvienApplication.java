@@ -10,6 +10,8 @@ import cit.group10.qlGiangvien.widgets.*;
 import cit.group10.qlGiangvien.constants.*;
 import cit.group10.qlGiangvien.databaseConnect.AuthenticateAccount;
 import cit.group10.qlGiangvien.databaseConnect.CompletedDatabase;
+import cit.group10.qlGiangvien.install.CreateFileInformationDatabase;
+import cit.group10.qlGiangvien.install.InstallWindow;
 
 import com.vaadin.Application;
 import com.vaadin.data.util.sqlcontainer.SQLContainer;
@@ -34,9 +36,15 @@ public class QlgiangvienApplication extends Application implements Constants,dbC
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
-
-
 	private static ThreadLocal<QlgiangvienApplication> currentApplication = new ThreadLocal<QlgiangvienApplication> ();
+	
+	
+	//for connect database
+	public static  String DB_DBNAME ="";
+	public static  String DB_USER ="";
+	public static  String DB_PASS="" ;
+	
+	
 	
 	
 //	private static final long serialVersionUID = 1L;
@@ -46,32 +54,45 @@ public class QlgiangvienApplication extends Application implements Constants,dbC
 	private Label lblError= new Label() ;
 //	private Link link ;
 	
-	LoginWindow mainWindow ;
+	Window mainWindow ;
 	
 	
 	@Override
 	public void init() {
 		
-			try {
-				mainWindow = new LoginWindow();
-
-				setMainWindow(mainWindow);
-				setTheme("qlgiangvientheme");
+		
+		try {
+			
+			CreateFileInformationDatabase check_status = new CreateFileInformationDatabase();
+			
+			if (CreateFileInformationDatabase.checkInstalled()){
 				
-				System.out.println("print in init :" +AuthenticateAccount.countTables() ) ;
-				CompletedDatabase db= new CompletedDatabase();
-				db.create();
+				mainWindow = new LoginWindow(); // did install >> login form
 				
+			}else {
+				mainWindow = new InstallWindow() ; // did not install >> install form
 				
-				
-				setInstance(this);
-				
-				
-				
-			} catch (Exception e) {
-
-				e.printStackTrace();
 			}
+			
+			
+			
+			
+			
+			System.out.println("QlgiangvienApplication >> status :"  + DB_DBNAME + DB_USER + DB_PASS);
+
+
+			
+			
+			
+			//set main window			
+			setMainWindow(mainWindow);
+			setTheme("qlgiangvientheme");
+			setInstance(this);
+
+		} catch (Exception e) {
+
+			System.out.println("QlgiangvienApplication :" + e.toString()) ;
+		}
 			
 	}
 	
@@ -123,14 +144,14 @@ public class QlgiangvienApplication extends Application implements Constants,dbC
 				getMainWindow().open(new ExternalResource(newWindow.getURL()));
 				setMainWindow(newWindow);			
 				
-				Window w = this.getMainWindow() ;
-				removeWindow(current) ;
+//				Window w = this.getMainWindow() ;
+//				removeWindow(current) ;
 				
 			}
 			else{
 				if (result.equals(USER_VALUE))
 				{
-					Window w = this.getMainWindow() ;
+//					Window w = this.getMainWindow() ;
 					
 					this.setUser(user) ;
 					UserFunctions newWindow = new UserFunctions();
@@ -138,7 +159,7 @@ public class QlgiangvienApplication extends Application implements Constants,dbC
 					addWindow(newWindow);
 					getMainWindow().open(new ExternalResource(newWindow.getURL()));
 					setMainWindow(newWindow);
-					removeWindow(current) ;
+//					removeWindow(current) ;
 				}
 				else mainWindow.showNotification(Constants.LOGIN_FAIL) ;
 				

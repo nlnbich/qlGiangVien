@@ -22,6 +22,7 @@ public class bottom extends CustomComponent implements Constants {
 
 	public bottom() {
 		buildMainLayout();
+		
 		setCompositionRoot(mainLayout);
 		mainLayout.setWidth(Constants.WIDTH_MAX, Sizeable.UNITS_PIXELS) ;
 		mainLayout.setStyleName("bottomPanel") ;
