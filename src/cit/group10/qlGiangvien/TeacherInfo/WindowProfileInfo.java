@@ -52,7 +52,7 @@ public class WindowProfileInfo extends Window implements Constants {
 		
 		
 		//--------------------bl
-		Label title = new Label("<center><h1>Thông tin cá nhân <h1></center>", Label.CONTENT_XHTML) ;
+		Label title = new Label("<center><h1>Thông tin cá nhân<h1></center>", Label.CONTENT_XHTML) ;
 
 		final BeanItemContainer<ResearchingBean> beans = new BeanItemContainer<ResearchingBean>(ResearchingBean.class);
 
