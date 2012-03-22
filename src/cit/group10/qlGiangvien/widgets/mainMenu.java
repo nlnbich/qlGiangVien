@@ -4,6 +4,11 @@ import cit.group10.qlGiangvien.AdminFunctions;
 import cit.group10.qlGiangvien.LoginWindow;
 import cit.group10.qlGiangvien.QlgiangvienApplication;
 import cit.group10.qlGiangvien.UserFunctions;
+import cit.group10.qlGiangvien.TeacherInfo.WindowDegreeInfo;
+import cit.group10.qlGiangvien.TeacherInfo.WindowDiscipline_RewardInfo;
+import cit.group10.qlGiangvien.TeacherInfo.WindowProfileInfo;
+import cit.group10.qlGiangvien.TeacherInfo.WindowSubjectInfo;
+import cit.group10.qlGiangvien.TeacherInfo.WindowWorkInfo;
 import cit.group10.qlGiangvien.constants.*;
 import cit.group10.qlGiangvien.detailedInfo.researching.WindowRegistedResearching;
 import cit.group10.qlGiangvien.detailedInfo.researching.WindowResearching;
@@ -138,7 +143,26 @@ public class mainMenu extends CustomComponent implements Constants {
 			newWindow = new AdminFunctions();					
 			newWindow.setName(url_parent+selectedItem.getText()) ;					
 			break;
-
+		case 4:
+			newWindow = new WindowProfileInfo();					
+			newWindow.setName(url_parent+selectedItem.getText()) ;					
+			break;
+		case 5:
+			newWindow = new WindowWorkInfo();					
+			newWindow.setName(url_parent+selectedItem.getText()) ;					
+			break;
+		case 6:
+			newWindow = new WindowDegreeInfo();					
+			newWindow.setName(url_parent+selectedItem.getText()) ;					
+			break;
+		case 7:
+			newWindow = new WindowSubjectInfo();					
+			newWindow.setName(url_parent+selectedItem.getText()) ;					
+			break;
+		case 8:
+			newWindow = new WindowDiscipline_RewardInfo();					
+			newWindow.setName(url_parent+selectedItem.getText()) ;					
+			break;
 //		case 10:
 //			newWindow = new WindowResearching();					
 //			newWindow.setName(url_parent+selectedItem.getText()) ;					
