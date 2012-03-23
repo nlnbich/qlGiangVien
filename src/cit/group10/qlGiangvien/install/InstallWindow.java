@@ -151,6 +151,7 @@ public class InstallWindow extends Window implements cInstallDatabase {
 		HorizontalLayout h = new HorizontalLayout() ;
 		h.setWidth("100%") ;
 		h.setHeight("300px") ;
+		
 		h.addComponent(v) ;
 		h.setComponentAlignment(v, Alignment.MIDDLE_CENTER) ;
 		h.setSpacing(true) ;

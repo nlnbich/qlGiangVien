@@ -1,6 +1,7 @@
 package cit.group10.qlGiangvien.databaseConnect;
 
 
+import cit.group10.qlGiangvien.QlgiangvienApplication;
 import cit.group10.qlGiangvien.constants.Constants;
 import cit.group10.qlGiangvien.constants.dbConnect;
 
@@ -54,7 +55,7 @@ public class AuthenticateAccount implements dbConnect {
 		try {
 			
 			JDBCConnectionPool pool = new SimpleJDBCConnectionPool(
-					 JDBC_DRIVER,DB_URL, USER, PASS);
+					 JDBC_DRIVER,DB_URL+QlgiangvienApplication.DB_DBNAME, QlgiangvienApplication.DB_USER, QlgiangvienApplication.DB_PASS);
 		 
 			String st_query = "select * from account where username='"+user_name+"' and password='"+password+"';";
 			FreeformQuery query = new FreeformQuery(st_query, pool, "userID");
