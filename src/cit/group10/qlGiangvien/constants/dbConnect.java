@@ -12,9 +12,8 @@ public interface dbConnect {
 	
 	//for authenticateAccount
 	static final String st_default ="default" ;
-	static final String COLLUMM_ROLE = "role" ;
-	static final String ADMIN_VALUE = "admin" ;
-	static final String USER_VALUE = "user" ;
+
+	
 	
 	
 	//for configureated file
@@ -26,21 +25,54 @@ public interface dbConnect {
 	
 	//for create tables of database
 	final String[] CREATE_TABLES ={
-	"create table account(userID nvarchar(5) primary key, username varchar(20) not null unique, password varchar(20) not null, role varchar(20) not null) ;",
-	"create table hocVi(maHV nvarchar(5) primary key, tenHV varchar(50) not null ) ;",
-	"create table boMon(maBM nvarchar(5) primary key, tenBM varchar(50) not null, maKhoa varchar(5) not null) ;",
-	"create table noiDaoTao( maDT nvarchar(5) primary key, tenTruong varchar(50) not null, diaChi varchar(50) not null ) ;",
-	"create table giangVien_HocVi( maHV nvarchar(5), maGV nvarchar(5), maNDT varchar(5), thogianDT datetime );",
-	"create table quaTrinhCongTac( maQTCT nvarchar(5), HSLuong float, bac int, namCT datetime) ;",
-	"create table hocHam( maHH nvarchar(5) primary key, tenHH varchar(50) not null) ;",
-	"create table chucVu( maCV nvarchar(5)primary key, tenCV varchar(50) not null ) ;",
-	"create table loaiGV( maLoaiGV nvarchar(5) primary key, tenLoaiGV varchar(50) not null ) ;",
-	"create table nghienCuuKH( maDTNC nvarchar(5) primary key, tenDTNC varchar(200) not null ) ;",
-	"create table khenThuongKyLuat( maKTKL nvarchar(5) primary key, tenKTKL varchar(80) not null, hinhThuc varchar(200) not null) ;" };
+	"CREATE TABLE Account(accountID int NOT NULL AUTO_INCREMENT primary key, MaGV nchar(6) , username nvarchar(20) not null unique, password nvarchar(50) not null, role int not null, createdDate date,"
+	+"Constraint GiangVien_Account Foreign key (MaGV) References GiangVien(MaGV) ) ;" ,
+
+	"CREATE TABLE HocVi(	MaHV int NOT NULL AUTO_INCREMENT PRIMARY KEY,	TenHV	nvarchar(50) NOT NULL, description nvarchar(200) );",
+
+	"CREATE TABLE BoMon(MaBM	nchar(6) NOT NULL PRIMARY KEY,	TenMH	nvarchar(50) NOT NULL unique, description nvarchar(200) ) ;" ,
+
+	"CREATE TABLE QuaTrinhCongTac(MaQTCT int NOT NULL AUTO_INCREMENT PRIMARY KEY, HSLuong float NOT NULL, Bac int NOT NULL, NgayBD date NOT NULL) ;" ,
+
+	"CREATE TABLE HocHam(MaHH int NOT NULL AUTO_INCREMENT PRIMARY KEY, TenHH nvarchar(50) NOT NULL, description nvarchar(200) ) ;" ,
+
+	"CREATE TABLE NghienCuuKH(MaCTNC nchar(6) NOT NULL PRIMARY KEY, TenCTNC nvarchar(500) NOT NULL, LoaiCTNC nvarchar(100) not null, NoiDungTH nvarchar(500), NgayBT date not null, NgayKT date ) ;" ,
+
+	"CREATE TABLE KhenThuong_KyLuat(MaKTKL nchar(6) NOT NULL PRIMARY KEY, TenKTKL nvarchar(100) NOT NULL, NoiDung nvarchar(200) NOT NULL) ;" ,
+
+	"CREATE TABLE GiangVien(MaGV nchar(6) NOT NULL PRIMARY KEY, HoTen nvarchar(50) NOT NULL, NgaySinh DateTime NOT NULL, " +
+	"GioiTinh nvarchar(3) NOT NULL, DiaChi nvarchar(50) NOT NULL, DienThoai nvarchar(12) NOT NULL, MACV nchar(6) NOT NULL,"+ 
+	"MABM nchar(6) NOT NULL, MaQTCT nchar(6) NOT NULL, MaLoaiGV nchar(6) NOT NULL, MaCTNC nchar(6) NOT NULL, MaKTKL nchar(6) NOT NULL,"+
+	"Constraint ChucVu_GiangVien Foreign key (MaCV) References ChucVu(MaCV),"+
+	"Constraint BoMon_GiangVien Foreign key (MaBM) References BoMon(MaBM),"+
+	"Constraint QTCT_GiangVien Foreign key (MaQTCT) References QuaTrinhCongTac(MaQTCT),"+
+	"Constraint KTKL_GiangVien Foreign key (MaKTKL) References KhenThuong_KyLuat(MaKTKL)"+
+	");",
+
+	"CREATE TABLE GiangVien_HocHam ( MaGV nchar(6)NOT NULL, MAHH nchar(6)NOT NULL, TGDat Datetime NOT NULL, PRIMARY KEY(MaGV, MaHH),"+
+	"Constraint HocHam_GiangVienHocHam Foreign key (MaHH) References HocHam(MaHH),"+
+	"Constraint GiangVien_GiangVienHocHam Foreign key (MaGV) References GiangVien(MaGV)) ;" ,
+
+	"CREATE TABLE GiangVien_HocVi ( MaHV nchar(6) NOT NULL, MaGV nchar(6)NOT NULL, TenTruongDT nvarchar(200) NOT NULL, " +
+	"DiaChiTruongDB nvarchar(200),  ThoiGianBD date NOT NULL, ThoiGianKT date not null ,  PRIMARY KEY(MaHV,MaGV) ,"+ 
+	"Constraint HocVi_GiangVienHocVi Foreign key (MaHV) References HocVi(MaHV),"+
+	"Constraint GiangVien_GiangVienHocVi Foreign key (MaGV) References GiangVien(MaGV) ) ;" ,
+
+	"CREATE TABLE GiangVien_BoMon(MaCV int NOT NULL AUTO_INCREMENT PRIMARY KEY, MaBM	nchar(6) NOT NULL," +
+	" MaGV nchar(6) NOT NULL, TenCV nvarchar(50) NOT NULL, NgayBD date not null, NgayKT date,"+
+	"Constraint GV_GiangVien_BoMon Foreign key (MaGV) References GiangVien(MaGV),"+
+	"Constraint BM_GiangVien_BoMon Foreign key (MaBM) References BoMon(MaBM)"+
+	") ;" ,
+
+	"CREATE TABLE GiangVien_NghienCuuKH( MaGV nchar(6) not null, MaCTNC nchar(6) not null, NgayTG date, " +
+	"NgayKT date, primary key( MaGV, MaCTNC),"+
+	"Constraint GV_GiangVien_NghienCuuKH Foreign key (MaGV) References GiangVien(MaGV),"+
+	"Constraint NC_GiangVien_NghienCuuKH Foreign key (MaCTNC) References NghienCuuKH(MaCTNC) ) ;" };
+	 
 	
 	final String[] INSERT_ACCOUNT ={
-	"insert into account values('00001', 'admin', 'admin', 'admin'); ",
-	"insert into account values('00002', 'user', '12345', 'user'); "
+	"insert into Account values(1, '00001', 'admin', 'admin', 1, now() ); ",
+	"insert into Account values(2, null, 'user', '12345', 0, now() ); "
 	};
 	
 	

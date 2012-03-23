@@ -29,7 +29,7 @@ public class WindowResearching extends Window implements Constants {
 		mainLayout.setMargin(false);
 		mainLayout.setSpacing(true);
 		
-		mainLayout.addComponent(new leftSide(PERMISSION.USER));
+		mainLayout.addComponent(new leftSide());
 		rContent = new VerticalLayout() ;
 		rContent.setWidth("100%") ;
 				
@@ -45,7 +45,7 @@ public class WindowResearching extends Window implements Constants {
 			
 		addComponent(new topLogin()) ;
 		addComponent(new topPanel()) ;		
-		addComponent(new mainMenu(PERMISSION.USER)) ;
+		addComponent(new mainMenu()) ;
 		addComponent(v) ;		
 		addComponent(new bottom()) ;
 		

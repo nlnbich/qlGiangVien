@@ -29,8 +29,8 @@ import com.vaadin.data.util.filter.Compare.Equal ;
 public class AuthenticateAccount implements dbConnect {
 	
 	
-	private final String TABLE_ACCOUNT ="account" ;
-	
+	private final String TABLE_ACCOUNT ="Account" ;
+	private static final String COLLUMM_ROLE = "role" ;
 	
 	
 	private String user_name ;
@@ -57,8 +57,8 @@ public class AuthenticateAccount implements dbConnect {
 			JDBCConnectionPool pool = new SimpleJDBCConnectionPool(
 					 JDBC_DRIVER,DB_URL+QlgiangvienApplication.DB_DBNAME, QlgiangvienApplication.DB_USER, QlgiangvienApplication.DB_PASS);
 		 
-			String st_query = "select * from account where username='"+user_name+"' and password='"+password+"';";
-			FreeformQuery query = new FreeformQuery(st_query, pool, "userID");
+			String st_query = "select * from Account where username='"+user_name+"' and password='"+password+"';";
+			FreeformQuery query = new FreeformQuery(st_query, pool, "accountID");
 			SQLContainer result = new SQLContainer(query) ;
 
 			
@@ -81,9 +81,8 @@ public class AuthenticateAccount implements dbConnect {
 			 
 
 			 if (result.size() >0 )
-			 {
-				 if (role.toString().equals(ADMIN_VALUE)) return "admin" ;
-				 else return "user" ;
+			 { 
+				 return role.toString() ;
 				 
 			 }
 			 else 

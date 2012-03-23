@@ -33,7 +33,7 @@ public class WindowImportData extends Window implements Constants {
 		rContent = new rightContentImportData() ;
 		rContent.setWidth("100%") ;
 		
-		mainLayout.addComponent(new leftSide(PERMISSION.ADMIN));
+		mainLayout.addComponent(new leftSide());
 		mainLayout.addComponent(rContent) ;
 		mainLayout.setExpandRatio(rContent, 1.0f) ;
 
@@ -46,7 +46,7 @@ public class WindowImportData extends Window implements Constants {
 			
 		addComponent(new topLogin()) ;
 		addComponent(new topPanel()) ;		
-		addComponent(new mainMenu(PERMISSION.USER)) ;
+		addComponent(new mainMenu()) ;
 		addComponent(v) ;		
 		addComponent(new bottom()) ;
 		

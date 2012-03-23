@@ -134,10 +134,10 @@ public class QlgiangvienApplication extends Application implements Constants,dbC
 			String result = authenticate.check() ; 
 			System.out.println("re: " +result+"--") ;
 			
-			if (result.equals(ADMIN_VALUE)) 
+			if (result.equals("1")) 
 			{
 				
-				this.setUser(user) ;
+				this.setUser(result+user) ;
 				AdminFunctions newWindow = new AdminFunctions();
 				newWindow.setName("Admin Functions");			
 				addWindow(newWindow);
@@ -149,11 +149,11 @@ public class QlgiangvienApplication extends Application implements Constants,dbC
 				
 			}
 			else{
-				if (result.equals(USER_VALUE))
+				if (result.equals("0"))
 				{
 //					Window w = this.getMainWindow() ;
 					
-					this.setUser(user) ;
+					this.setUser(result+user) ;
 					UserFunctions newWindow = new UserFunctions();
 					newWindow.setName("User Function");
 					addWindow(newWindow);

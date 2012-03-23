@@ -30,7 +30,7 @@ public class UserFunctions extends Window implements Constants {
 		mainLayout.setMargin(false);
 		mainLayout.setSpacing(true);
 		
-		mainLayout.addComponent(new leftSide(PERMISSION.USER));
+		mainLayout.addComponent(new leftSide());
 		rightContent = new infoUser() ;
 		rightContent.setWidth("100%") ;
 		
@@ -55,7 +55,7 @@ public class UserFunctions extends Window implements Constants {
 		addComponent(new topLogin()) ;
 		addComponent(new topPanel()) ;
 		
-		addComponent(new mainMenu(PERMISSION.USER)) ;
+		addComponent(new mainMenu()) ;
 		addComponent(v) ;		
 		addComponent(new bottom()) ;
 

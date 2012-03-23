@@ -30,7 +30,7 @@ public class WindowSogiangvientheohochamhocvi extends Window implements Constant
 		mainLayout.setMargin(false);
 		mainLayout.setSpacing(true);
 		
-		mainLayout.addComponent(new leftSide(PERMISSION.USER));
+		mainLayout.addComponent(new leftSide());
 		rContent = new VerticalLayout() ;
 		rContent.setWidth("100%") ;
 				
@@ -46,7 +46,7 @@ public class WindowSogiangvientheohochamhocvi extends Window implements Constant
 			
 		addComponent(new topLogin()) ;
 		addComponent(new topPanel()) ;		
-		addComponent(new mainMenu(PERMISSION.ADMIN)) ;
+		addComponent(new mainMenu()) ;
 		addComponent(v) ;		
 		addComponent(new bottom()) ;
 		

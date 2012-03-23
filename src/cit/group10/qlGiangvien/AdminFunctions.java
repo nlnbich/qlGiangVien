@@ -24,7 +24,7 @@ public class AdminFunctions extends Window {
 		mainLayout.setSpacing(true);
 		
 
-		mainLayout.addComponent(new leftSide(PERMISSION.ADMIN));
+		mainLayout.addComponent(new leftSide());
 		rightContentSample info = new rightContentSample() ;
 		info.setWidth("100%") ;
 		mainLayout.addComponent(info) ;
@@ -40,7 +40,7 @@ public class AdminFunctions extends Window {
 		
 		addComponent(new topLogin()) ;
 		addComponent(new topPanel()) ;
-		addComponent(new mainMenu(PERMISSION.ADMIN)) ;
+		addComponent(new mainMenu()) ;
 		addComponent(v) ;		
 		addComponent(new bottom()) ;
 		

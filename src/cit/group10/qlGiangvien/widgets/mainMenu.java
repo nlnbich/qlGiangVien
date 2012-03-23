@@ -5,8 +5,7 @@ import cit.group10.qlGiangvien.LoginWindow;
 import cit.group10.qlGiangvien.QlgiangvienApplication;
 import cit.group10.qlGiangvien.UserFunctions;
 import cit.group10.qlGiangvien.TeacherInfo.WindowAddTeacher;
-import cit.group10.qlGiangvien.TeacherInfo.WindowDegreeInfo;
-import cit.group10.qlGiangvien.TeacherInfo.WindowDiscipline_RewardInfo;
+
 import cit.group10.qlGiangvien.TeacherInfo.WindowImportData;
 import cit.group10.qlGiangvien.TeacherInfo.WindowProfileInfo;
 import cit.group10.qlGiangvien.TeacherInfo.WindowSubjectInfo;
@@ -40,14 +39,15 @@ public class mainMenu extends CustomComponent implements Constants {
 	private VerticalLayout mainLayout;	
 	public MenuBar menuMain;
 //	private Command menuCommand ; 
-	PERMISSION userRole ;
+	int userRole=0 ;
 
 	
-	public mainMenu(PERMISSION userPermission ) {
+	public mainMenu() {
 		
 //		this.menuCommand = menuCommand ;
 		
-		userRole = userPermission ;
+		userRole =Integer.valueOf( QlgiangvienApplication.getInstance().getUser().toString().substring(0, 1) );
+		 
 		
 		buildMainLayout();
 		setCompositionRoot(mainLayout);
@@ -55,9 +55,9 @@ public class mainMenu extends CustomComponent implements Constants {
 		MenuBar.MenuItem[] item = new MenuBar.MenuItem[5] ;
 		MenuBar.MenuItem itemM ;// = new MenuBar.MenuItem() ;
 		
-		switch(userPermission)
+		switch(userRole)
 		{
-		case ADMIN:
+		case 1:
 				for (int i=0; i< MAIN_MENU_TEXT_ADMIN[0].length; i++)
 				{
 					
@@ -69,7 +69,7 @@ public class mainMenu extends CustomComponent implements Constants {
 						itemM.addItem(MAIN_MENU_TEXT_ADMIN[i+1][j], menuCommand) ;			
 				}//end of for
 				break ;
-		case USER:	
+		case 0:	
 						
 			for (int i=0; i< MAIN_MENU_TEXT_USER[0].length; i++)
 			{				
@@ -111,7 +111,7 @@ public class mainMenu extends CustomComponent implements Constants {
 			
 			Window newWindow ;
 			
-			if (userRole.equals(Constants.PERMISSION.ADMIN)){		
+			if (userRole==1){		
 			
 				newWindow=menuAdminClickFunction(selectedItem) ;
 			}			
@@ -154,18 +154,18 @@ public class mainMenu extends CustomComponent implements Constants {
 			newWindow = new WindowWorkInfo();					
 			newWindow.setName(url_parent+selectedItem.getText()) ;					
 			break;
-		case 6:
-			newWindow = new WindowDegreeInfo();					
-			newWindow.setName(url_parent+selectedItem.getText()) ;					
-			break;
+//		case 6:
+//			newWindow = new WindowDegreeInfo();					
+//			newWindow.setName(url_parent+selectedItem.getText()) ;					
+//			break;
 		case 7:
 			newWindow = new WindowImportData();					
 			newWindow.setName(url_parent+selectedItem.getText()) ;					
 			break;
-		case 8:
-			newWindow = new WindowDiscipline_RewardInfo();					
-			newWindow.setName(url_parent+selectedItem.getText()) ;					
-			break;
+//		case 8:
+//			newWindow = new WindowDiscipline_RewardInfo();					
+//			newWindow.setName(url_parent+selectedItem.getText()) ;					
+//			break;
 		case 9:
 //			newWindow = new WindowResearching();					
 //			newWindow.setName(url_parent+selectedItem.getText()) ;					
