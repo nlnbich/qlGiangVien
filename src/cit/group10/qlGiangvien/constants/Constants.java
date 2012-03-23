@@ -21,7 +21,7 @@ public interface Constants {
 	static final String[][] MAIN_MENU_TEXT_ADMIN={ 
 		{"Trang chủ", "Quản lý giảng viên", "Đề tài nghiên cứu","Thống kê", "Tìm kiếm" },
 		{},			
-		{"Thêm giảng viên", "Cập nhật/Xóa giảng viên", "Quản lý bộ môn"},
+		{"Thêm giảng viên", "Cập nhật/Xóa giảng viên", "Quản lý bộ môn", "Import thông tin giảng viên"},
 		{"Danh sách đề tài", "Đăng ký đề tài mới"},
 		{"Số đề tài trong năm", "Số giảng viên theo từng bộ môn", "Số giảng viên theo học hàm, học vị"},
 		{"Tìm theo tên", "Tìm theo bộ môn", "Tìm theo học hàm, học vị"}
