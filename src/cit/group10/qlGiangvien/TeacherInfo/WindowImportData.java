@@ -13,7 +13,7 @@ public class WindowImportData extends Window implements Constants {
 
 	private static final long serialVersionUID = 1L;	
 
-	rightContentImport rContent  ;
+	rightContentImportData rContent  ;
 	
 	
 	
@@ -30,10 +30,10 @@ public class WindowImportData extends Window implements Constants {
 		mainLayout.setSpacing(true);
 		
 		
-		rContent = new rightContentImport() ;
+		rContent = new rightContentImportData() ;
 		rContent.setWidth("100%") ;
 		
-		mainLayout.addComponent(new leftSide(PERMISSION.USER));
+		mainLayout.addComponent(new leftSide(PERMISSION.ADMIN));
 		mainLayout.addComponent(rContent) ;
 		mainLayout.setExpandRatio(rContent, 1.0f) ;
 
