@@ -11,7 +11,7 @@ public interface Constants {
 	static final String[][] MAIN_MENU_TEXT_USER ={ 
 			{"Trang chủ", "Thông tin giảng viên", "Đề tài nghiên cứu"},
 			{},			
-			{"Thông tin cá nhân", "Thông tin công tác","Thông tin học hàm, học vị", "Thông tin bộ môn", "Khen thưởng, kỷ luật"},
+			{"Thông tin cá nhân", "Thông tin công tác","Học hàm, học vị", "Khen thưởng, kỷ luật"},
 			{"Đề tài đã làm", "Đăng ký đề tài mới"}			
 		};
 	static final String[] MAIN_MENU_TEXT_USER_ICON ={"img/home.png", "img/personal.png", "img/research.png"};
@@ -21,7 +21,7 @@ public interface Constants {
 	static final String[][] MAIN_MENU_TEXT_ADMIN={ 
 		{"Trang chủ", "Thông tin giảng viên", "Đề tài nghiên cứu","Thống kê", "Tìm kiếm" },
 		{},			
-		{"Thông tin cá nhân", "Thông tin công tác","Thông tin học hàm, học vị", "Thông tin bộ môn", "Khen thưởng, kỷ luật"},
+		{"Thêm giảng viên", "Xóa giảng viên","Cập nhật thông tin giảng viên", "Xem thông tin giảng viên"},
 		{"Danh sách đề tài", "Đăng ký đề tài mới"},
 		{"Số đề tài trong năm", "Số giảng viên theo từng bộ môn", "Số giảng viên theo học hàm, học vị"},
 		{"Tìm theo tên", "Tìm theo bộ môn", "Tìm theo học hàm, học vị"}
