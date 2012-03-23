@@ -1,6 +1,7 @@
 package cit.group10.qlGiangvien.TeacherInfo;
 
 import cit.group10.qlGiangvien.constants.Constants;
+import cit.group10.qlGiangvien.constants.Constants.PERMISSION;
 import cit.group10.qlGiangvien.detailedInfo.researching.ResearchingBean;
 import cit.group10.qlGiangvien.widgets.*;
 
@@ -14,7 +15,7 @@ public class WindowDiscipline_RewardInfo extends Window implements Constants {
 
 	private static final long serialVersionUID = 1L;	
 
-	VerticalLayout rContent  ;
+	rightContentKhenThuongKyLuat rContent  ;
 	
 	
 	
@@ -30,10 +31,11 @@ public class WindowDiscipline_RewardInfo extends Window implements Constants {
 		mainLayout.setMargin(false);
 		mainLayout.setSpacing(true);
 		
-		mainLayout.addComponent(new leftSide(PERMISSION.USER));
-		rContent = new VerticalLayout() ;
+		
+		rContent = new rightContentKhenThuongKyLuat() ;
 		rContent.setWidth("100%") ;
-				
+		
+		mainLayout.addComponent(new leftSide(PERMISSION.USER));
 		mainLayout.addComponent(rContent) ;
 		mainLayout.setExpandRatio(rContent, 1.0f) ;
 
@@ -46,23 +48,9 @@ public class WindowDiscipline_RewardInfo extends Window implements Constants {
 			
 		addComponent(new topLogin()) ;
 		addComponent(new topPanel()) ;		
-		addComponent(new mainMenu(PERMISSION.ADMIN)) ;
+		addComponent(new mainMenu(PERMISSION.USER)) ;
 		addComponent(v) ;		
 		addComponent(new bottom()) ;
-		
-		
-		//--------------------bl
-		Label title = new Label("<center><h1>Thông tin khen thưởng - kỷ luật  <h1></center>", Label.CONTENT_XHTML) ;
-
-		final BeanItemContainer<ResearchingBean> beans = new BeanItemContainer<ResearchingBean>(ResearchingBean.class);
-
-		Table table = new Table("GiangVien",beans) ;
-		
-		table.setWidth("100%") ;
-		table.setPageLength(10) ;
-		
-		rContent.addComponent(title) ;
-		rContent.addComponent(table) ;
 
 		
 		

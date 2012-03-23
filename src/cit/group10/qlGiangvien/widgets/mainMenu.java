@@ -163,14 +163,14 @@ public class mainMenu extends CustomComponent implements Constants {
 			newWindow = new WindowDiscipline_RewardInfo();					
 			newWindow.setName(url_parent+selectedItem.getText()) ;					
 			break;
-//		case 10:
-//			newWindow = new WindowResearching();					
-//			newWindow.setName(url_parent+selectedItem.getText()) ;					
-//			break;
-//		case 11:
-//			newWindow = new WindowRegistedResearching();					
-//			newWindow.setName(url_parent+selectedItem.getText()) ;
-//			break ;
+		case 10:
+			newWindow = new WindowResearching();					
+			newWindow.setName(url_parent+selectedItem.getText()) ;					
+			break;
+		case 11:
+			newWindow = new WindowRegistedResearching();					
+			newWindow.setName(url_parent+selectedItem.getText()) ;
+			break ;
 		case 13:
 			newWindow = new WindowDetaitheonam();					
 			newWindow.setName(url_parent+selectedItem.getText()) ;
@@ -224,13 +224,11 @@ public class mainMenu extends CustomComponent implements Constants {
 		case 11:
 			newWindow = new WindowRegistedResearching();					
 			newWindow.setName(url_parent+selectedItem.getText()) ;
-			
+			break ;
 			
 		default:
-			newWindow = new Window();		
-////			newWindow.setName(url_parent +selectedItem.getText()) ;
-//			QlgiangvienApplication.getInstance().setNewWindow(newWindow) ;					
-				
+			newWindow = new WindowRegistedResearching();					
+			newWindow.setName(url_parent+selectedItem.getText()) ;	
 		}//end of switch
 		
     	return newWindow ;
