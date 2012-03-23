@@ -6,6 +6,7 @@ import cit.group10.qlGiangvien.QlgiangvienApplication;
 import cit.group10.qlGiangvien.UserFunctions;
 import cit.group10.qlGiangvien.TeacherInfo.WindowDegreeInfo;
 import cit.group10.qlGiangvien.TeacherInfo.WindowDiscipline_RewardInfo;
+import cit.group10.qlGiangvien.TeacherInfo.WindowImportData;
 import cit.group10.qlGiangvien.TeacherInfo.WindowProfileInfo;
 import cit.group10.qlGiangvien.TeacherInfo.WindowSubjectInfo;
 import cit.group10.qlGiangvien.TeacherInfo.WindowWorkInfo;
@@ -143,6 +144,7 @@ public class mainMenu extends CustomComponent implements Constants {
 			newWindow = new AdminFunctions();					
 			newWindow.setName(url_parent+selectedItem.getText()) ;					
 			break;
+			
 		case 4:
 			newWindow = new WindowProfileInfo();					
 			newWindow.setName(url_parent+selectedItem.getText()) ;					
@@ -156,42 +158,42 @@ public class mainMenu extends CustomComponent implements Constants {
 			newWindow.setName(url_parent+selectedItem.getText()) ;					
 			break;
 		case 7:
-			newWindow = new WindowSubjectInfo();					
+			newWindow = new WindowImportData();					
 			newWindow.setName(url_parent+selectedItem.getText()) ;					
 			break;
 		case 8:
 			newWindow = new WindowDiscipline_RewardInfo();					
 			newWindow.setName(url_parent+selectedItem.getText()) ;					
 			break;
+		case 9:
+//			newWindow = new WindowResearching();					
+//			newWindow.setName(url_parent+selectedItem.getText()) ;					
+//			break;
 		case 10:
-			newWindow = new WindowResearching();					
-			newWindow.setName(url_parent+selectedItem.getText()) ;					
-			break;
-		case 11:
 			newWindow = new WindowRegistedResearching();					
 			newWindow.setName(url_parent+selectedItem.getText()) ;
 			break ;
-		case 13:
+		case 11:
 			newWindow = new WindowDetaitheonam();					
 			newWindow.setName(url_parent+selectedItem.getText()) ;
 			break ;
-		case 14:
+		case 12:
 			newWindow = new WindowSogiangvientheotungbomon1();					
 			newWindow.setName(url_parent+selectedItem.getText()) ;
 			break ;	
-		case 15:
+		case 13:
 			newWindow = new WindowSogiangvientheohochamhocvi();					
 			newWindow.setName(url_parent+selectedItem.getText()) ;
 			break ;		
-		case 17:
+		case 14:
 			newWindow = new WindowTimtheoten();					
 			newWindow.setName(url_parent+selectedItem.getText()) ;
 			break ;		
-		case 18:
+		case 15:
 			newWindow = new WindowTimtheobomon();					
 			newWindow.setName(url_parent+selectedItem.getText()) ;
 			break ;	
-		case 19:
+		case 16:
 			newWindow = new WindowTimtheohochamhocvi();					
 			newWindow.setName(url_parent+selectedItem.getText()) ;
 			break ;		

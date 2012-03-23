@@ -28,11 +28,7 @@ public interface Constants {
 	};
 	static final String[] MAIN_MENU_TEXT_ADMIN_ICON ={"img/home.png", "img/personal.png","img/research.png", "img/statistics.png", "img/search.png"};
 	
-	
-	
-	
-	
-	
+
 	
 	
 	static enum LEFT_MEN_INDEX{USER, ADMIN, INFO, SEARCH, STATISTICS } ; 
