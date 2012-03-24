@@ -30,7 +30,8 @@ public interface dbConnect {
 
 	"CREATE TABLE HocVi(	MaHV int NOT NULL AUTO_INCREMENT PRIMARY KEY,	TenHV	nvarchar(50) NOT NULL, description nvarchar(200) );",
 
-	"CREATE TABLE BoMon(MaBM	nchar(6) NOT NULL PRIMARY KEY,	TenMH	nvarchar(50) NOT NULL unique, description nvarchar(200) ) ;" ,
+	"CREATE TABLE BoMon(MaBM nchar(6) NOT NULL PRIMARY KEY,	TenMH nvarchar(50) NOT NULL unique," +
+	" LichSu nvarchar(200),NhanSu nvarchar(200), GiangDay nvarchar(200), NghienCuuPhatTrien nvarchar(200) ) ;" ,
 
 	"CREATE TABLE QuaTrinhCongTac(MaQTCT int NOT NULL AUTO_INCREMENT PRIMARY KEY, HSLuong float NOT NULL, Bac int NOT NULL, NgayBD date NOT NULL) ;" ,
 
@@ -41,8 +42,8 @@ public interface dbConnect {
 	"CREATE TABLE KhenThuong_KyLuat(MaKTKL nchar(6) NOT NULL PRIMARY KEY, TenKTKL nvarchar(100) NOT NULL, NoiDung nvarchar(200) NOT NULL) ;" ,
 
 	"CREATE TABLE GiangVien(MaGV nchar(6) NOT NULL PRIMARY KEY, HoTen nvarchar(50) NOT NULL, NgaySinh DateTime NOT NULL, " +
-	"GioiTinh nvarchar(3) NOT NULL, DiaChi nvarchar(50) NOT NULL, DienThoai nvarchar(12) NOT NULL, MACV nchar(6) NOT NULL,"+ 
-	"MABM nchar(6) NOT NULL, MaQTCT nchar(6) NOT NULL, MaLoaiGV nchar(6) NOT NULL, MaCTNC nchar(6) NOT NULL, MaKTKL nchar(6) NOT NULL,"+
+	"GioiTinh nvarchar(3) NOT NULL, DiaChi nvarchar(50) NOT NULL, DienThoai nvarchar(12) NOT NULL, Email nvarchar(50), Description nvarchar(500), MaCV nchar(6) NOT NULL,"+ 
+	"MaBM nchar(6) NOT NULL, MaQTCT nchar(6) NOT NULL, MaLoaiGV nchar(6) NOT NULL, MaCTNC nchar(6) NOT NULL, MaKTKL nchar(6) NOT NULL,"+
 	"Constraint ChucVu_GiangVien Foreign key (MaCV) References ChucVu(MaCV),"+
 	"Constraint BoMon_GiangVien Foreign key (MaBM) References BoMon(MaBM),"+
 	"Constraint QTCT_GiangVien Foreign key (MaQTCT) References QuaTrinhCongTac(MaQTCT),"+
@@ -54,7 +55,7 @@ public interface dbConnect {
 	"Constraint GiangVien_GiangVienHocHam Foreign key (MaGV) References GiangVien(MaGV)) ;" ,
 
 	"CREATE TABLE GiangVien_HocVi ( MaHV nchar(6) NOT NULL, MaGV nchar(6)NOT NULL, TenTruongDT nvarchar(200) NOT NULL, " +
-	"DiaChiTruongDB nvarchar(200),  ThoiGianBD date NOT NULL, ThoiGianKT date not null ,  PRIMARY KEY(MaHV,MaGV) ,"+ 
+	"DiaChiTruongDT nvarchar(200),  ThoiGianBD date NOT NULL, ThoiGianKT date not null ,  PRIMARY KEY(MaHV,MaGV) ,"+ 
 	"Constraint HocVi_GiangVienHocVi Foreign key (MaHV) References HocVi(MaHV),"+
 	"Constraint GiangVien_GiangVienHocVi Foreign key (MaGV) References GiangVien(MaGV) ) ;" ,
 
