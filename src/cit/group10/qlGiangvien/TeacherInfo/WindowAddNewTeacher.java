@@ -8,16 +8,16 @@ import com.vaadin.data.util.BeanItemContainer;
 import com.vaadin.terminal.Sizeable;
 import com.vaadin.ui.*;
 
-public class WindowTeacherInfoForm extends Window implements Constants {
+public class WindowAddNewTeacher extends Window implements Constants {
 	
 
 	private static final long serialVersionUID = 1L;	
 
-	rightContentAddInfoGV rContent  ;
+	rightContentAddNewTeacher rContent  ;
 	
 	
 	
-	public WindowTeacherInfoForm() {
+	public WindowAddNewTeacher() {
 
 		
 		setCaption("dang ky nghien cuu");//Constants.USER_CAPTION) ;
@@ -30,7 +30,7 @@ public class WindowTeacherInfoForm extends Window implements Constants {
 		mainLayout.setSpacing(true);
 		
 		
-		rContent = new rightContentAddInfoGV() ;
+		rContent = new rightContentAddNewTeacher() ;
 		rContent.setWidth("100%") ;
 		
 		mainLayout.addComponent(new leftSide());
@@ -44,11 +44,40 @@ public class WindowTeacherInfoForm extends Window implements Constants {
 		v.addComponent(mainLayout) ;
 		v.setComponentAlignment(mainLayout, Alignment.MIDDLE_CENTER) ;
 			
+		
+		
+		
+		
+		
+		 
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
 		addComponent(new topLogin()) ;
 		addComponent(new topPanel()) ;		
 		addComponent(new mainMenu()) ;
 		addComponent(v) ;		
 		addComponent(new bottom()) ;
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
 		
 		
 				

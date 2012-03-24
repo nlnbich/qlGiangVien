@@ -61,6 +61,9 @@ public class QlgiangvienApplication extends Application implements Constants,dbC
 	public void init() {
 		
 		
+		
+		
+		
 		try {
 			
 			CreateFileInformationDatabase check_status = new CreateFileInformationDatabase();

@@ -32,10 +32,14 @@ public class leftSide extends CustomComponent implements Constants{
 	 * visual editor.
 	 */
 	public leftSide() {
-		
-		System.out.println(QlgiangvienApplication.getInstance().getUser().toString() );
-		
+	
+		try{
+			
 		userRole =Integer.valueOf( QlgiangvienApplication.getInstance().getUser().toString().substring(0, 1) );
+		} catch(Exception e){
+			userRole =0 ;
+		}
+		
 		System.out.println("print role in left side :"+ userRole) ;
 		
 		

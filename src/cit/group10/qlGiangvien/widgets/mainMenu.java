@@ -4,12 +4,10 @@ import cit.group10.qlGiangvien.AdminFunctions;
 import cit.group10.qlGiangvien.LoginWindow;
 import cit.group10.qlGiangvien.QlgiangvienApplication;
 import cit.group10.qlGiangvien.UserFunctions;
-import cit.group10.qlGiangvien.TeacherInfo.WindowAddTeacher;
-
+import cit.group10.qlGiangvien.TeacherInfo.WindowAddNewTeacher;
 import cit.group10.qlGiangvien.TeacherInfo.WindowImportData;
 import cit.group10.qlGiangvien.TeacherInfo.WindowProfileInfo;
 import cit.group10.qlGiangvien.TeacherInfo.WindowSubjectInfo;
-import cit.group10.qlGiangvien.TeacherInfo.WindowTeacherInfoForm;
 import cit.group10.qlGiangvien.TeacherInfo.WindowUpdateDelete;
 import cit.group10.qlGiangvien.TeacherInfo.WindowWorkInfo;
 import cit.group10.qlGiangvien.constants.*;
@@ -48,7 +46,13 @@ public class mainMenu extends CustomComponent implements Constants {
 		
 //		this.menuCommand = menuCommand ;
 		
+		try{
+		
 		userRole =Integer.valueOf( QlgiangvienApplication.getInstance().getUser().toString().substring(0, 1) );
+		} catch(Exception e){
+			userRole =0 ;
+		}
+		
 		 
 		
 		buildMainLayout();
@@ -149,7 +153,7 @@ public class mainMenu extends CustomComponent implements Constants {
 			break;
 			
 		case 4:
-			newWindow = new WindowTeacherInfoForm();					
+			newWindow = new WindowAddNewTeacher();					
 			newWindow.setName(url_parent+selectedItem.getText()) ;					
 			break;
 		case 5:
