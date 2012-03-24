@@ -9,6 +9,8 @@ import cit.group10.qlGiangvien.TeacherInfo.WindowAddTeacher;
 import cit.group10.qlGiangvien.TeacherInfo.WindowImportData;
 import cit.group10.qlGiangvien.TeacherInfo.WindowProfileInfo;
 import cit.group10.qlGiangvien.TeacherInfo.WindowSubjectInfo;
+import cit.group10.qlGiangvien.TeacherInfo.WindowTeacherInfoForm;
+import cit.group10.qlGiangvien.TeacherInfo.WindowUpdateDelete;
 import cit.group10.qlGiangvien.TeacherInfo.WindowWorkInfo;
 import cit.group10.qlGiangvien.constants.*;
 import cit.group10.qlGiangvien.detailedInfo.researching.WindowRegistedResearching;
@@ -147,11 +149,11 @@ public class mainMenu extends CustomComponent implements Constants {
 			break;
 			
 		case 4:
-			newWindow = new WindowAddTeacher();					
+			newWindow = new WindowTeacherInfoForm();					
 			newWindow.setName(url_parent+selectedItem.getText()) ;					
 			break;
 		case 5:
-			newWindow = new WindowWorkInfo();					
+			newWindow = new WindowUpdateDelete();					
 			newWindow.setName(url_parent+selectedItem.getText()) ;					
 			break;
 //		case 6:

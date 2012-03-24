@@ -116,6 +116,7 @@ public class CreateFileInformationDatabase implements dbConnect{
 		
 		try{
 			File file = new File(fileName) ;
+			System.out.println("check the exist of file"+ file.exists() + file.getAbsolutePath()) ;
 			if (!file.exists() ) return false ;
 			else {
 				

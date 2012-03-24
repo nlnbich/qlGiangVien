@@ -51,29 +51,7 @@ public class WindowRegistedResearching extends Window implements Constants {
 		addComponent(new bottom()) ;
 		
 		
-		//--------------------bl
-//		Label title = new Label("<center><h1>Danh sach de tai<h1></center>", Label.CONTENT_XHTML) ;
-////		
-////		
-////		
-////		
-//		final BeanItemContainer<ResearchingBean> beans = new BeanItemContainer<ResearchingBean>(ResearchingBean.class);
-//
-//		Table table = new Table("de tai",beans) ;
-//		table.setWidth("100%") ;
-//		table.setPageLength(10) ;
-//		
-////		ResearchingBean(String id, String name, String content, String started_day, String ended_day,
-////				String who_width, String status){
-//		
-//		for (int i=0; i< 100; i++)		
-//			beans.addBean(new ResearchingBean()) ;
-//		
-//		rContent.addComponent(title) ;
-//		rContent.addComponent(table) ;
-
-		
-		
+				
 		
 
 	}
