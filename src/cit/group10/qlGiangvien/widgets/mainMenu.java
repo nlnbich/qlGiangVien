@@ -181,27 +181,27 @@ public class mainMenu extends CustomComponent implements Constants {
 			newWindow = new WindowRegistedResearching();					
 			newWindow.setName(url_parent+selectedItem.getText()) ;
 			break ;
-		case 11:
+		case 12:
 			newWindow = new WindowDetaitheonam();					
 			newWindow.setName(url_parent+selectedItem.getText()) ;
 			break ;
-		case 12:
+		case 13:
 			newWindow = new WindowSogiangvientheotungbomon1();					
 			newWindow.setName(url_parent+selectedItem.getText()) ;
 			break ;	
-		case 13:
+		case 14:
 			newWindow = new WindowSogiangvientheohochamhocvi();					
 			newWindow.setName(url_parent+selectedItem.getText()) ;
 			break ;		
-		case 14:
+		case 15:
 			newWindow = new WindowTimtheoten();					
 			newWindow.setName(url_parent+selectedItem.getText()) ;
 			break ;		
-		case 15:
+		case 16:
 			newWindow = new WindowTimtheobomon();					
 			newWindow.setName(url_parent+selectedItem.getText()) ;
 			break ;	
-		case 16:
+		case 17:
 			newWindow = new WindowTimtheohochamhocvi();					
 			newWindow.setName(url_parent+selectedItem.getText()) ;
 			break ;		

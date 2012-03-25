@@ -1,15 +1,24 @@
 package cit.group10.qlGiangvien.statistics;
 
+import java.sql.Connection;
+
+import cit.group10.qlGiangvien.QlgiangvienApplication;
 import cit.group10.qlGiangvien.constants.Constants;
+import cit.group10.qlGiangvien.constants.dbConnect;
 import cit.group10.qlGiangvien.detailedInfo.researching.ResearchingBean;
 import cit.group10.qlGiangvien.widgets.*;
 
 
+import com.google.gwt.dev.generator.ast.Statement;
 import com.vaadin.data.util.BeanItemContainer;
+import com.vaadin.data.util.sqlcontainer.SQLContainer;
+import com.vaadin.data.util.sqlcontainer.connection.JDBCConnectionPool;
+import com.vaadin.data.util.sqlcontainer.connection.SimpleJDBCConnectionPool;
+import com.vaadin.data.util.sqlcontainer.query.FreeformQuery;
 import com.vaadin.terminal.Sizeable;
 import com.vaadin.ui.*;
 
-public class WindowSogiangvientheohochamhocvi extends Window implements Constants {
+public class WindowSogiangvientheohochamhocvi extends Window implements Constants,dbConnect {
 	
 
 	private static final long serialVersionUID = 1L;	
@@ -54,15 +63,34 @@ public class WindowSogiangvientheohochamhocvi extends Window implements Constant
 		//--------------------bl
 		Label title = new Label("<center><h1>Thống kê số giảng viên theo học hàm, học vị<h1></center>", Label.CONTENT_XHTML) ;
 
-		final BeanItemContainer<ResearchingBean> beans = new BeanItemContainer<ResearchingBean>(ResearchingBean.class);
-
-		Table table = new Table("Thống kê",beans) ;
+		
+		Table table = new Table("Thống kê") ;
 		
 		table.setWidth("100%") ;
 		table.setPageLength(10) ;
 		
 		rContent.addComponent(title) ;
 		rContent.addComponent(table) ;
+
+		Connection conn = null;
+        Statement stmt = null;
+        try{
+           
+          
+           JDBCConnectionPool pool = new SimpleJDBCConnectionPool(
+					 JDBC_DRIVER,DB_URL+QlgiangvienApplication.DB_DBNAME, QlgiangvienApplication.DB_USER, QlgiangvienApplication.DB_PASS);
+		 
+
+           String mysql = "select * from GiangVien_HocHam,GiangVien_HocVi ;" ;
+           FreeformQuery query = new FreeformQuery(mysql, pool, "MAHH") ;
+           
+           SQLContainer container = new SQLContainer(query);
+          
+           table.setContainerDataSource(container) ;
+        }
+        catch(Exception e){
+        	System.out.println("in right Content: "+ e.toString()) ;
+        }
 
 		
 		
