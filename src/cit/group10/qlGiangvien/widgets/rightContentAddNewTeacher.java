@@ -240,11 +240,7 @@ public class rightContentAddNewTeacher extends CustomComponent implements cTeach
 			// TODO Auto-generated catch block
 			sql += "null" + ",";
 		}
-		
-		
-		
-		
-		
+				
 		sql += "'" + txtDienThoai.getValue().toString() + "' ," ;
 		sql += "'" + txtThongTinEmail.getValue().toString() + "' ," ;
 		sql += "'" + txtDiaChi.getValue().toString() + "' ,";
@@ -334,14 +330,12 @@ private String getUpdateCongTac(){
 		sql2 = "update GiangVien_BoMon set ";
 		
 		sql2 += "TenCV='"+ txtChucVu.getValue().toString()+ "' ," ;
-		sql2 += "NgayBD'"+ txtBoMonNgayBD.getValue().toString()+ "' ," ;
 		try {
 			sql2 += "NgayBD='" + dateFormatter2.format(txtBoMonNgayBD.getValue()) + "', ";
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			sql2 += "NgayBD" + null + ",";
 		}
-		sql2 += "NgayKT'"+ txtBoMonNgayKT.getValue().toString()+ "' ," ;
 		try {
 			sql1 += "NgayKT='" + dateFormatter2.format(txtBoMonNgayKT.getValue()) + "', ";
 		} catch (Exception e) {
@@ -354,43 +348,189 @@ private String getUpdateCongTac(){
 	
 	
 	private String getHocVi(){
-		String sql ="insert into " ;
 		
-		sql += txtHocViTen.getValue().toString()+ ",";
-		sql += txtTenTruong.getValue().toString()+ ",";
-		sql += txtHocViNgayBD.getValue().toString()+ ",";
-		sql += txtHocViNgayKT.getValue().toString()+ ",";
-		sql += txtHocViDiaChiTruong.getValue().toString()+ ",";
+	DateFormat dateFormatter = DateFormat.getDateInstance(DateFormat.SHORT);
+	String sql = "insert into GiangVien_HocVi values (";	
+		
+		sql += "'" + txtHocViTen.getValue().toString()+ "' ,";
+		sql += "'" + txtTenTruong.getValue().toString()+ "' ,";
+	
+		try {
+			sql += " ' " + dateFormatter.format(txtHocViNgayBD.getValue()) + " ', ";
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			sql += "null" + ",";
+		}
+		
+		try {
+			sql += " ' " + dateFormatter.format(txtHocViNgayKT.getValue()) + " ', ";
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			sql += "null" + ",";
+		}
+		sql += "'" + txtHocViDiaChiTruong.getValue().toString()+ "' ,";
 		System.out.println("Hoc vi : "+sql) ;
 		return sql ;
 		
 	}
+	
+	private String getUpdateHocVi(){
+		
+		String sql;
+		DateFormat dateFormatter = DateFormat.getDateInstance(DateFormat.SHORT);
+		try {
+			
+			sql = "update GiangVien_HocVi set ";
+					
+			
+			sql += "TenHocVi='" + txtHocViTen.getValue().toString()+ "' ,";
+			sql += "TenTruongDT='" + txtTenTruong.getValue().toString()+ "' ,";
+		
+			try {
+				sql += "ThoiGianBD=' " + dateFormatter.format(txtHocViNgayBD.getValue()) + " ', ";
+			} catch (Exception e) {
+				// TODO Auto-generated catch block
+				sql += "ThoiGianBD=" + null + ",";
+			}
+			
+			try {
+				sql += "ThoiGianKT=' " + dateFormatter.format(txtHocViNgayKT.getValue()) + " ', ";
+			} catch (Exception e) {
+				// TODO Auto-generated catch block
+				sql += "ThoiGianKT" + null + ",";
+			}
+			sql += "DiaChiTruongDT='" + txtHocViDiaChiTruong.getValue().toString()+ "' ,";
+			System.out.println("Hoc vi : "+sql) ;
+			return sql ;
+		}catch (Exception e) {
+			
+			System.out.println("rightContentAddNewTeacher: "+ e.toString()) ;
+			return "" ;
+		}	
+		}
+	
 //	
 	private String getHocHam(){
-		String sql ="insert into " ;
-		sql += txtTenHocHam.getValue().toString()+ ",";
-		sql += txtHocHamNgayDatDuoc.getValue().toString()+ ",";
+		DateFormat dateFormatter = DateFormat.getDateInstance(DateFormat.SHORT);
+		String sql = "insert into GiangVien_HocHam values (";
+			
+		sql += "'" + txtTenHocHam.getValue().toString()+ "' ,";
+				
+		try {
+			sql += " ' " + dateFormatter.format(txtHocHamNgayDatDuoc.getValue()) + " ', ";
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			sql += "null" + ",";
+		}
+		
+		
 		System.out.println("Hoc ham : "+sql) ;
 		return sql ;
 		
 	}
+	
+	private String getUpdateHocHam(){
+		
+		String sql;
+		DateFormat dateFormatter = DateFormat.getDateInstance(DateFormat.SHORT);
+		try {
+			
+		sql = "update GiangVien_HocHam set ";
+					
+		sql += "TenHocHam='" + txtTenHocHam.getValue().toString()+ "' ,";
+				
+		try {
+			sql += "TGDat=' " + dateFormatter.format(txtHocHamNgayDatDuoc.getValue()) + " ', ";
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			sql += "null" + ",";
+		}
+				
+		System.out.println("Hoc ham : "+sql) ;
+		return sql ;
+		} catch (Exception e) {
+			
+			System.out.println("rightContentAddNewTeacher: "+ e.toString()) ;
+			return "" ;
+		}		
+	}
+	
 //	
 	private String getDangNhap(){
-		String sql ="insert into " ;
-		sql += txtUserName.getValue().toString()+ ",";
-		sql += txtPassword.getValue().toString()+ ",";
+		
+		String sql = "insert into Account values (";
+				
+		sql += "'" + txtUserName.getValue().toString()+ "' ,";
+		sql += "'" + txtPassword.getValue().toString()+ "' ,";
 		System.out.println("Dang nhap : "+sql) ;
 		return sql ;
 	}
+	
+	private String getUpdateDangNhap(){
+		
+		String sql;
+		sql = "update Account set ";
+		try {
+		
+		
+			sql += "username='" + txtUserName.getValue().toString()+ "' ,";
+			sql += "password='" + txtPassword.getValue().toString()+ "' ,";
+			System.out.println("Dang nhap : "+sql) ;
+		return sql ;
+		} catch (Exception e) {
+			System.out.println("rightContentAddNewTeacher: "+ e.toString()) ;
+			return "" ;
+		}	
+	}
+	
 //	
 	private String getNghienCuu(){
 //		
-	String sql ="insert into " ;	
-		sql += txtNghienCuuNgayThamGia.getValue().toString()+ ",";
-		sql += txtNghienCuuNgayKT.getValue().toString()+ ",";
+		DateFormat dateFormatter = DateFormat.getDateInstance(DateFormat.SHORT);
+		String sql = "insert into GiangVien_NghienCuuKH values (";	
+		try {
+			sql += "' " + dateFormatter.format(txtNghienCuuNgayThamGia.getValue()) + " ', ";
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			sql += "null" + ",";
+		}
+		try {
+			sql += " ' " + dateFormatter.format(txtNghienCuuNgayKT.getValue()) + " ', ";
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			sql += "null" + ",";
+		}
 		System.out.println("Nghien cuu : "+sql) ;
 		return sql ;
 	}
+	
+	private String getUpdateNghienCuu(){
+//		
+		String sql;
+		DateFormat dateFormatter = DateFormat.getDateInstance(DateFormat.SHORT);
+		try {
+			
+		sql = "update GiangVien_NghienCuuKH set ";
+		try {
+			sql += "NgayTG=' " + dateFormatter.format(txtNghienCuuNgayThamGia.getValue()) + " ', ";
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			sql += "null" + ",";
+		}
+		try {
+			sql += "NgayKT=' " + dateFormatter.format(txtNghienCuuNgayKT.getValue()) + " ', ";
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			sql += "null" + ",";
+		}
+		System.out.println("Nghien cuu : "+sql) ;
+		return sql ;
+		} catch (Exception e) {
+			
+			System.out.println("rightContentAddNewTeacher: "+ e.toString()) ;
+			return "" ;
+	}
+	}	
 	
 	
 	//===================================================for build interface
