@@ -1,15 +1,17 @@
 package cit.group10.qlGiangvien.widgets;
 
+import java.util.Collection;
+
 import cit.group10.qlGiangvien.AdminFunctions;
 import cit.group10.qlGiangvien.LoginWindow;
 import cit.group10.qlGiangvien.QlgiangvienApplication;
 import cit.group10.qlGiangvien.UserFunctions;
-import cit.group10.qlGiangvien.TeacherInfo.WindowAddNewSubject;
 import cit.group10.qlGiangvien.TeacherInfo.WindowAddNewTeacher;
 import cit.group10.qlGiangvien.TeacherInfo.WindowImportData;
+import cit.group10.qlGiangvien.TeacherInfo.WindowManagerSubject;
+import cit.group10.qlGiangvien.TeacherInfo.WindowManagerTeacher;
 import cit.group10.qlGiangvien.TeacherInfo.WindowProfileInfo;
-import cit.group10.qlGiangvien.TeacherInfo.WindowSubjectInfo;
-import cit.group10.qlGiangvien.TeacherInfo.WindowUpdateDelete;
+
 import cit.group10.qlGiangvien.TeacherInfo.WindowWorkInfo;
 import cit.group10.qlGiangvien.constants.*;
 import cit.group10.qlGiangvien.detailedInfo.researching.WindowRegistedResearching;
@@ -118,6 +120,12 @@ public class mainMenu extends CustomComponent implements Constants {
 			
 			Window newWindow ;
 			
+			
+			
+			
+			
+			
+			
 			if (userRole==1){		
 			
 				newWindow=menuAdminClickFunction(selectedItem) ;
@@ -158,11 +166,11 @@ public class mainMenu extends CustomComponent implements Constants {
 			newWindow.setName(url_parent+selectedItem.getText()) ;					
 			break;
 		case 5:
-			newWindow = new WindowUpdateDelete();					
+			newWindow = new WindowManagerTeacher();					
 			newWindow.setName(url_parent+selectedItem.getText()) ;					
 			break;
 		case 6:
-			newWindow = new WindowAddNewSubject();					
+			newWindow = new WindowManagerSubject();					
 			newWindow.setName(url_parent+selectedItem.getText()) ;					
 			break;
 		case 7:
@@ -174,9 +182,9 @@ public class mainMenu extends CustomComponent implements Constants {
 //			newWindow.setName(url_parent+selectedItem.getText()) ;					
 //			break;
 		case 9:
-//			newWindow = new WindowResearching();					
-//			newWindow.setName(url_parent+selectedItem.getText()) ;					
-//			break;
+			newWindow = new WindowResearching();					
+			newWindow.setName(url_parent+selectedItem.getText()) ;					
+			break;
 		case 10:
 			newWindow = new WindowRegistedResearching();					
 			newWindow.setName(url_parent+selectedItem.getText()) ;

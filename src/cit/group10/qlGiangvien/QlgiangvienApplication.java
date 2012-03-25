@@ -2,6 +2,7 @@ package cit.group10.qlGiangvien;
 
 
 import java.sql.SQLException;
+import java.util.Collection;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -59,6 +60,7 @@ public class QlgiangvienApplication extends Application implements Constants,dbC
 	
 	@Override
 	public void init() {
+		
 		
 		
 		
@@ -188,14 +190,27 @@ public class QlgiangvienApplication extends Application implements Constants,dbC
 	
 	public void setNewWindow(Window layoutWindow){
 		
-		Window current = this.getMainWindow() ;				
+				
 		
-		addWindow(layoutWindow);
+		try {
+			Collection<Window> c = QlgiangvienApplication.getInstance().getWindows() ;
+			boolean exist = c.contains(layoutWindow) ;
+			
+			System.out.println("mainMenu >> num of windows :"+ c.size()+ "--"+ exist) ;
+			
+			
+			addWindow(layoutWindow);
+			
+			
+			
+			getMainWindow().open(new ExternalResource(layoutWindow.getURL()));
+			setMainWindow(layoutWindow);
+		} catch (Exception e) {
+			
+			System.out.println("QlgiangvienApplication :" + e.toString()) ;
+		}
 		
-		getMainWindow().open(new ExternalResource(layoutWindow.getURL()));
-		setMainWindow(layoutWindow);
-		
-//		removeWindow(current) ;
+
 		
 		
 	}

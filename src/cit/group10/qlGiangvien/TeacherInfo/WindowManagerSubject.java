@@ -1,4 +1,4 @@
-package cit.group10.qlGiangvien.detailedInfo.researching ;
+package cit.group10.qlGiangvien.TeacherInfo ;
 
 import java.sql.Connection;
 import java.sql.Statement;
@@ -20,24 +20,24 @@ import com.vaadin.terminal.Sizeable;
 import com.vaadin.ui.*;
 import com.vaadin.ui.Button.ClickEvent;
 
-public class WindowResearching extends Window implements Constants, dbConnect {
+public class WindowManagerSubject extends Window implements Constants, dbConnect {
 	
 
 	private static final long serialVersionUID = 1L;	
 
-	VerticalLayout rContentList  ;
 	HorizontalLayout mainLayout  ;
-	rightContentRegistedResearching rContentModify ;
+	VerticalLayout rContentList  ;	
+	rightContentAddNewSubject rContentModify ;
 	Table table ;
 	
 	Window subwindow ;
 	
 	
 	
-	public WindowResearching() {
+	public WindowManagerSubject() {
 
 		
-		setCaption("researching ");//Constants.USER_CAPTION) ;
+		setCaption("quan ly bo mon ");//Constants.USER_CAPTION) ;
 		
 		
 		
@@ -55,7 +55,7 @@ public class WindowResearching extends Window implements Constants, dbConnect {
 		mainLayout.addComponent(rContentList) ;
 		mainLayout.setExpandRatio(rContentList, 1.0f) ;
 		
-		rContentModify = new rightContentRegistedResearching() ;
+		rContentModify = new rightContentAddNewSubject() ;
 		rContentModify.setWidth("100%") ;		
 		
 		
@@ -78,17 +78,16 @@ public class WindowResearching extends Window implements Constants, dbConnect {
 		
 		
 		//--------------------bl
-		Label title = new Label("<center><h1>Danh sách đề tài<h1></center>", Label.CONTENT_XHTML) ;
+		Label title = new Label("<center><h1>Danh sách bo mon<h1></center>", Label.CONTENT_XHTML) ;
 //		
 //		
 //		
 //		
-		final BeanItemContainer<ResearchingBean> beans = new BeanItemContainer<ResearchingBean>(ResearchingBean.class);
-
-		table = new Table("de tai",beans) ;
 		
+
+		table = new Table() ;		
 		table.setWidth("100%") ;
-		table.setPageLength(10) ;
+		table.setPageLength(20) ;
 	
 		rContentList.addComponent(title) ;
 		rContentList.addComponent(table) ;
@@ -101,7 +100,7 @@ public class WindowResearching extends Window implements Constants, dbConnect {
 					 JDBC_DRIVER,DB_URL+QlgiangvienApplication.DB_DBNAME, QlgiangvienApplication.DB_USER, QlgiangvienApplication.DB_PASS);
 		 
 
-           String mysql = "SELECT * from NghienCuuKH" ;
+           String mysql = "SELECT * from BoMon" ;
                     
            FreeformQuery query = new FreeformQuery(mysql, pool, "MaCTNC") ;
            
