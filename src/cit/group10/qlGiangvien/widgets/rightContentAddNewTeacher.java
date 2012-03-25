@@ -213,7 +213,7 @@ public class rightContentAddNewTeacher extends CustomComponent implements cTeach
 //	}
 	
 	
-	//===================================================RESET DATA
+	//===================================================get DATA
 	private String getCoBan(){
 		String sql ="insert into " ;
 		sql += txtMaGV.getValue().toString() + ", ";
@@ -232,70 +232,57 @@ public class rightContentAddNewTeacher extends CustomComponent implements cTeach
 		
 		String sql ="insert into " ;
 		
-		txtCongTacNgayBD.setValue(null) ;
-		txtHeSoLuong.setValue(null) ;
-		txtBacLuong.select(S_BACLUONG[0]) ;
+		sql += txtCongTacNgayBD.getValue().toString()+ ",";
+		sql += txtHeSoLuong.getValue().toString()+ "," ;
+		sql += txtBacLuong.getValue().toString()+ "," ;
 //		txtBoMon
-		txtChucVu.select(S_CHUCVU[0]) ;
-		txtBoMonNgayBD.setValue(null) ;
-		txtBoMonNgayKT.setValue(null) ;
+		sql += txtChucVu.getValue().toString()+ "," ;
+		sql += txtBoMonNgayBD.getValue().toString()+ "," ;
+		sql += txtBoMonNgayKT.getValue().toString()+ "," ;
 		
-		System.out.println("co ban : "+sql) ;
+		System.out.println("cong tac : "+sql) ;
 		return sql ;
 		
 	}
 	
-//	private void resetHocVi(){
-//		
-//		txtHocViTen.select(S_HOCVI[0]) ;
-//		txtTenTruong.setValue(null) ;
-//		txtHocViNgayBD.setValue(null) ;
-//		txtHocViNgayKT.setValue(null) ;
-//		txtHocViDiaChiTruong.setValue(null) ;
-//		
-//	}
+	private String getHocVi(){
+		String sql ="insert into " ;
+		
+		sql += txtHocViTen.getValue().toString()+ ",";
+		sql += txtTenTruong.getValue().toString()+ ",";
+		sql += txtHocViNgayBD.getValue().toString()+ ",";
+		sql += txtHocViNgayKT.getValue().toString()+ ",";
+		sql += txtHocViDiaChiTruong.getValue().toString()+ ",";
+		System.out.println("Hoc vi : "+sql) ;
+		return sql ;
+		
+	}
 //	
-//	private void resetHocHam(){
-//		
-//		txtTenHocHam.select(S_HOCHAM[0]) ;
-//		txtHocHamNgayDatDuoc.setValue(null) ;
-//		
-//	}
+	private String getHocHam(){
+		String sql ="insert into " ;
+		sql += txtTenHocHam.getValue().toString()+ ",";
+		sql += txtHocHamNgayDatDuoc.getValue().toString()+ ",";
+		System.out.println("Hoc ham : "+sql) ;
+		return sql ;
+		
+	}
 //	
-//	private void resetDangNhap(){
-//		
-//		txtUserName.setValue(null) ;
-//		txtPassword.setValue(null) ;
-//	}
+	private String getDangNhap(){
+		String sql ="insert into " ;
+		sql += txtUserName.getValue().toString()+ ",";
+		sql += txtPassword.getValue().toString()+ ",";
+		System.out.println("Hoc ham : "+sql) ;
+		return sql ;
+	}
 //	
-//	private void resetNghienCuu(){
+	private String getNghienCuu(){
 //		
-////		twinColSelect_1
-//		txtNghienCuuNgayThamGia.setValue(null) ;
-//		txtNghienCuuNgayKT.setValue(null) ;
-//	}
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
+	String sql ="insert into " ;	
+		sql += txtNghienCuuNgayThamGia.getValue().toString()+ ",";
+		sql += txtNghienCuuNgayKT.getValue().toString()+ ",";
+		System.out.println("Hoc ham : "+sql) ;
+		return sql ;
+	}
 	
 	
 	//===================================================for build interface
