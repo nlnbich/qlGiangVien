@@ -90,12 +90,12 @@ public class rightContentRegistedResearching extends CustomComponent implements 
 	
 	private void resetDataNC(){
 		
-//		txtMaDeTaiNC
-//		txtName
-//		txtNgayKT
-//		txtNgayBD
-//		txtContent
-//		comboBoxCap
+		txtMaDeTaiNC.setValue(null);
+		txtName.setValue(null);
+		txtNgayKT.setValue(null);
+		txtNgayBD.setValue(null);
+		txtContent.setValue(null);
+		comboBoxCap.select(S_PHAMVI[0]);
 		
 		
 	}
@@ -103,12 +103,12 @@ public class rightContentRegistedResearching extends CustomComponent implements 
 	private String getDataNC(){
 		
 		String sql = "insert " ;
-//		sql += txtMaDeTaiNC
-//		txtName
-//		txtNgayKT
-//		txtNgayBD
-//		txtContent
-//		comboBoxCap
+		sql += txtMaDeTaiNC.getValue().toString() + " ," ;
+		txtName.setValue(null);
+		txtNgayKT.setValue(null);
+		txtNgayBD.setValue(null);
+		txtContent.setValue(null);
+		comboBoxCap.select(S_PHAMVI[0]);
 		
 		System.out.println(sql) ;
 		return sql ;
