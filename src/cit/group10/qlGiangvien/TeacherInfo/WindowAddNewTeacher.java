@@ -20,7 +20,7 @@ public class WindowAddNewTeacher extends Window implements Constants {
 	public WindowAddNewTeacher() {
 
 		
-		setCaption("dang ky nghien cuu");//Constants.USER_CAPTION) ;
+		setCaption("them giao vien");//Constants.USER_CAPTION) ;
 		
 		
 		HorizontalLayout mainLayout = new HorizontalLayout() ;	

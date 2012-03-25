@@ -1,6 +1,9 @@
 
 package cit.group10.qlGiangvien.constants;
 
+import java.util.Arrays;
+import java.util.List;
+
 
 public interface Constants {
 	
@@ -77,6 +80,9 @@ public interface Constants {
 	static enum PERMISSION{ USER, ADMIN} ;
 	
 	
+	
+	public static final String[] S_PHAMVI =new String[] {"Cap Truong", "Cap Tinh/Thanh Pho", "Cap Bo"} ;
+	public static final List<String> LIST_PHAMVI = Arrays.asList(S_PHAMVI);
 	
 	
 	
