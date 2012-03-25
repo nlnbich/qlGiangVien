@@ -248,27 +248,110 @@ public class rightContentAddNewTeacher extends CustomComponent implements cTeach
 		sql += "'" + txtDienThoai.getValue().toString() + "' ," ;
 		sql += "'" + txtThongTinEmail.getValue().toString() + "' ," ;
 		sql += "'" + txtDiaChi.getValue().toString() + "' ,";
-		sql += "'" + txtGhiChu.getValue() + "' ,";
+		sql += "'" + txtGhiChu.getValue() + "',1 ,1);";
 		System.out.println("Co ban : "+sql) ;
 		return sql ;
 	}
+private String getUpdateCoBan(){
+	
+	String sql;
+	DateFormat dateFormatter = DateFormat.getDateInstance(DateFormat.SHORT);
+	try {
+		
+		sql = "update GiangVien set ";
+				
+		sql += "MaGV='" + txtMaGV.getValue().toString() + "' ,";
+		sql += "HoTen='" + txtHoTen.getValue().toString()  + "' ," ;
+		sql += "GioiTinh='" + txtGioiTinh.getValue().toString() + "' ," ;
+		
+		try {
+			sql += "NgaySinh='" + dateFormatter.format(txtNgaySinh.getValue()) + "', ";
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			sql += "NgaySinh" + null + ",";
+		}
+		
+				
+		sql += "DienThoai='" + txtDienThoai.getValue().toString() + "' ," ;
+		sql += "Email='" + txtThongTinEmail.getValue().toString() + "' ," ;
+		sql += "DiaChi='" + txtDiaChi.getValue().toString() + "' ,";
+		sql += "GhiChu='" + txtGhiChu.getValue() + "',1 ,1);";
+		
+		sql += " where MaGV = '" + txtMaGV.getValue().toString() + "' ;" ; 
+		System.out.println(sql) ;
+		return sql ;
+	} catch (Exception e) {
+		
+		System.out.println("rightContentAddNewTeacher: "+ e.toString()) ;
+		return "" ;
+	}	
+	}
+	
 	
 	private String getCongTac(){
 		
-		String sql ="insert into " ;
-		
-		sql += txtCongTacNgayBD.getValue().toString()+ ",";
-		sql += txtHeSoLuong.getValue().toString()+ "," ;
-		sql += txtBacLuong.getValue().toString()+ "," ;
+		DateFormat dateFormatter = DateFormat.getDateInstance(DateFormat.SHORT);
+		String sql1 = "insert into QuaTrinhCongTac values (";
+			
+		sql1 += "'"+ txtCongTacNgayBD.getValue().toString()+ "' ,";
+		sql1 += "'"+ txtHeSoLuong.getValue().toString()+ "' ," ;
+		sql1 += "'"+ txtBacLuong.getValue().toString()+ "' ," ;
+		System.out.println("cong tac : "+sql1) ;
+//		return sql1 ;		
 //		txtBoMon
-		sql += txtChucVu.getValue().toString()+ "," ;
-		sql += txtBoMonNgayBD.getValue().toString()+ "," ;
-		sql += txtBoMonNgayKT.getValue().toString()+ "," ;
-		
-		System.out.println("cong tac : "+sql) ;
-		return sql ;
-		
+		String sql2 = "insert into GiaoVien_BoMon values (";
+		sql2 += "'"+ txtChucVu.getValue().toString()+ "' ," ;
+		sql2 += "'"+ txtBoMonNgayBD.getValue().toString()+ "' ," ;
+		sql2 += "'"+ txtBoMonNgayKT.getValue().toString()+ "' ," ;
+		System.out.println("cong tac : "+sql2) ;
+		return sql1+sql2 ;
 	}
+	
+private String getUpdateCongTac(){
+	String sql1;
+		DateFormat dateFormatter1 = DateFormat.getDateInstance(DateFormat.SHORT);
+	
+		
+		sql1 = "update QuaTrinhCongTac set ";
+	
+			
+		sql1 += "HSLuong='"+ txtHeSoLuong.getValue().toString()+ "' ," ;
+		sql1 += "Bac='"+ txtBacLuong.getValue().toString()+ "' ," ;
+		
+		try {
+			sql1 += "NgayBD='" + dateFormatter1.format(txtCongTacNgayBD.getValue()) + "', ";
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			sql1 += "NgayBD" + null + ",";
+		}
+		System.out.println("cong tac : "+sql1) ;
+//		return sql1 ;		
+//		txtBoMon
+		String sql2;
+		DateFormat dateFormatter2 = DateFormat.getDateInstance(DateFormat.SHORT);
+	
+		
+		sql2 = "update GiangVien_BoMon set ";
+		
+		sql2 += "TenCV='"+ txtChucVu.getValue().toString()+ "' ," ;
+		sql2 += "NgayBD'"+ txtBoMonNgayBD.getValue().toString()+ "' ," ;
+		try {
+			sql2 += "NgayBD='" + dateFormatter2.format(txtBoMonNgayBD.getValue()) + "', ";
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			sql2 += "NgayBD" + null + ",";
+		}
+		sql2 += "NgayKT'"+ txtBoMonNgayKT.getValue().toString()+ "' ," ;
+		try {
+			sql1 += "NgayKT='" + dateFormatter2.format(txtBoMonNgayKT.getValue()) + "', ";
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			sql2 += "NgayKT" + null + ",";
+		}
+		System.out.println("cong tac : "+sql2) ;
+		return sql1+sql2 ;
+	}	
+	
 	
 	private String getHocVi(){
 		String sql ="insert into " ;
