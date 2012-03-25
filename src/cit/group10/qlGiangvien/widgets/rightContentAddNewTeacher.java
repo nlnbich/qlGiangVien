@@ -182,29 +182,29 @@ public class rightContentAddNewTeacher extends CustomComponent implements cTeach
 		txtBoMonNgayKT.setValue(null) ;
 	}
 	
-//	private void resetHocVi(){
-//		
-//		txtHocViTen.select(S_HOCVI[0]) ;
-//		txtTenTruong.setValue(null) ;
-//		txtHocViNgayBD.setValue(null) ;
-//		txtHocViNgayKT.setValue(null) ;
-//		txtHocViDiaChiTruong.setValue(null) ;
-//		
-//	}
-//	
-//	private void resetHocHam(){
-//		
-//		txtTenHocHam.select(S_HOCHAM[0]) ;
-//		txtHocHamNgayDatDuoc.setValue(null) ;
-//		
-//	}
-//	
-//	private void resetDangNhap(){
-//		
-//		txtUserName.setValue(null) ;
-//		txtPassword.setValue(null) ;
-//	}
-//	
+	private void resetHocVi(){
+		
+		txtHocViTen.select(S_HOCVI[0]) ;
+		txtTenTruong.setValue(null) ;
+		txtHocViNgayBD.setValue(null) ;
+		txtHocViNgayKT.setValue(null) ;
+		txtHocViDiaChiTruong.setValue(null) ;
+		
+	}
+	
+	private void resetHocHam(){
+		
+		txtTenHocHam.select(S_HOCHAM[0]) ;
+		txtHocHamNgayDatDuoc.setValue(null) ;
+		
+	}
+	
+	private void resetDangNhap(){
+		
+		txtUserName.setValue(null) ;
+		txtPassword.setValue(null) ;
+	}
+	
 //	private void resetNghienCuu(){
 //		
 ////		twinColSelect_1
@@ -245,35 +245,35 @@ public class rightContentAddNewTeacher extends CustomComponent implements cTeach
 		
 	}
 	
-	private void resetHocVi(){
-		
-		txtHocViTen.select(S_HOCVI[0]) ;
-		txtTenTruong.setValue(null) ;
-		txtHocViNgayBD.setValue(null) ;
-		txtHocViNgayKT.setValue(null) ;
-		txtHocViDiaChiTruong.setValue(null) ;
-		
-	}
-	
-	private void resetHocHam(){
-		
-		txtTenHocHam.select(S_HOCHAM[0]) ;
-		txtHocHamNgayDatDuoc.setValue(null) ;
-		
-	}
-	
-	private void resetDangNhap(){
-		
-		txtUserName.setValue(null) ;
-		txtPassword.setValue(null) ;
-	}
-	
-	private void resetNghienCuu(){
-		
-//		twinColSelect_1
-		txtNghienCuuNgayThamGia.setValue(null) ;
-		txtNghienCuuNgayKT.setValue(null) ;
-	}
+//	private void resetHocVi(){
+//		
+//		txtHocViTen.select(S_HOCVI[0]) ;
+//		txtTenTruong.setValue(null) ;
+//		txtHocViNgayBD.setValue(null) ;
+//		txtHocViNgayKT.setValue(null) ;
+//		txtHocViDiaChiTruong.setValue(null) ;
+//		
+//	}
+//	
+//	private void resetHocHam(){
+//		
+//		txtTenHocHam.select(S_HOCHAM[0]) ;
+//		txtHocHamNgayDatDuoc.setValue(null) ;
+//		
+//	}
+//	
+//	private void resetDangNhap(){
+//		
+//		txtUserName.setValue(null) ;
+//		txtPassword.setValue(null) ;
+//	}
+//	
+//	private void resetNghienCuu(){
+//		
+////		twinColSelect_1
+//		txtNghienCuuNgayThamGia.setValue(null) ;
+//		txtNghienCuuNgayKT.setValue(null) ;
+//	}
 	
 	
 	
