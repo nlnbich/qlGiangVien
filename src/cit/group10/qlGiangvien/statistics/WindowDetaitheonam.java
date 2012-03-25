@@ -79,9 +79,10 @@ public class WindowDetaitheonam extends Window implements Constants, dbConnect {
 					 JDBC_DRIVER,DB_URL+QlgiangvienApplication.DB_DBNAME, QlgiangvienApplication.DB_USER, QlgiangvienApplication.DB_PASS);
 		 
 
-           String mysql = "SELECT GiangVien.HoTen, NghienCuuKH.LoaiCTNC,NghienCuuKH.TenCTNC Orders.OrderNo FROM NghienCuuKH,GiangVien INNER JOIN Orders ON GiangVien.MaGV=NghienCuuKH.MaGV ORDER BY Nghien.LastName;
+           String mysql = "SELECT a.HoTen, b.LoaiCTNC,b.TenCTNC FROM NghienCuuKH b,GiangVien a,GiangVien_NghienCuuKH c" +
+           		"WHERE a.MaGV=c.MaGV and b.MaCTNC=c.MaCTNC" ;
                     
-           FreeformQuery query = new FreeformQuery(mysql, pool, "MaCTNC") ;
+           FreeformQuery query = new FreeformQuery(mysql, pool, "") ;
            
            SQLContainer container = new SQLContainer(query);
           
