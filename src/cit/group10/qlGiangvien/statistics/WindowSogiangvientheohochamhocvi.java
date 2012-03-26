@@ -61,31 +61,39 @@ public class WindowSogiangvientheohochamhocvi extends Window implements Constant
 		
 		
 		//--------------------bl
-		Label title = new Label("<center><h1>Thống kê số giảng viên theo học hàm, học vị<h1></center>", Label.CONTENT_XHTML) ;
+		Label title = new Label("<center><h1>Thống kê số giảng viên theo học vị<h1></center>", Label.CONTENT_XHTML) ;
+		Label title1 = new Label("<center><h1>Thống kê số giảng viên theo học hàm<h1></center>", Label.CONTENT_XHTML) ;
 
 		
-		Table table = new Table("Thống kê") ;
-		
+		Table table = new Table("thống kê theo học vị") ;
 		table.setWidth("100%") ;
 		table.setPageLength(10) ;
-		
 		rContent.addComponent(title) ;
 		rContent.addComponent(table) ;
 
+		Table table1 = new Table("thống kê theo học hàm") ;
+		table1.setWidth("100%") ;
+		table1.setPageLength(10) ;
+		rContent.addComponent(title1) ;
+		rContent.addComponent(table1) ;
         try{
            
           
            JDBCConnectionPool pool = new SimpleJDBCConnectionPool(
 					 JDBC_DRIVER,DB_URL+QlgiangvienApplication.DB_DBNAME, QlgiangvienApplication.DB_USER, QlgiangvienApplication.DB_PASS);
 		 
-
-           String mysql = "select TenHocVi, Count(g.MaGV) as 'Số lượng giảng viên' from GiangVien g,GiangVien_HocVi h where " +
-           		"g.MaGV = h.MaGV group by h.TenHocVi;" ;
-           FreeformQuery query = new FreeformQuery(mysql, pool, "MaGV") ;
-           
-           SQLContainer container = new SQLContainer(query);
-          
-           table.setContainerDataSource(container) ;
+           // Học vị
+           String mysql = "select TenHocVi, count(g.MaGV) as 'Số lượng giảng viên'    from GiangVien g , GiangVien_HocVi h where h.MaGV = g.MaGV group by TenHocVi;" ;
+        //   String mysql = "Select TenHocVi,Count(g.MaGV) as 'Mã giảng viên' from GiangVien_HocVi;";
+           FreeformQuery query = new FreeformQuery(mysql, pool, "TenHocVi") ;
+             SQLContainer container = new SQLContainer(query);
+             table.setContainerDataSource(container) ;
+          // học hàm 
+           String mysql1 = "	select TenHocHam, count(g.MaGV) as 'Số lượng giảng viên'    from GiangVien g , GiangVien_HocHam h where h.MaGV = g.MaGV group by TenHocHam;" ;
+            //  String mysql = "Select TenHocVi,Count(g.MaGV) as 'Mã giảng viên' from GiangVien_HocVi;";
+              FreeformQuery query1 = new FreeformQuery(mysql1, pool, "TenHocHam") ;
+                SQLContainer container1 = new SQLContainer(query1);
+                table1.setContainerDataSource(container1) ;
         }
         catch(Exception e){
         	System.out.println("in right Content: "+ e.toString()) ;
