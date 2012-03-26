@@ -79,8 +79,9 @@ public class WindowSogiangvientheohochamhocvi extends Window implements Constant
 					 JDBC_DRIVER,DB_URL+QlgiangvienApplication.DB_DBNAME, QlgiangvienApplication.DB_USER, QlgiangvienApplication.DB_PASS);
 		 
 
-           String mysql = "select * from GiangVien_HocHam,GiangVien_HocVi ;" ;
-           FreeformQuery query = new FreeformQuery(mysql, pool, "MAHH") ;
+           String mysql = "select TenHocVi, Count(g.MaGV) as 'Số lượng giảng viên' from GiangVien g,GiangVien_HocVi h where " +
+           		"g.MaGV = h.MaGV group by h.TenHocVi;" ;
+           FreeformQuery query = new FreeformQuery(mysql, pool, "MaGV") ;
            
            SQLContainer container = new SQLContainer(query);
           

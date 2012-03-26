@@ -42,9 +42,8 @@ public interface dbConnect {
 
 	"CREATE TABLE GiangVien(MaGV char(6) NOT NULL PRIMARY KEY, HoTen nvarchar(50) NOT NULL, NgaySinh DateTime NOT NULL, " +
 	"GioiTinh nvarchar(3) NOT NULL, DiaChi nvarchar(50) NOT NULL, DienThoai nvarchar(12) NOT NULL, Email nvarchar(50), GhiChu nvarchar(500),"+ 
-	"MaQTCT int NOT NULL,  MaKTKL int,"+
-	"Constraint QTCT_GiangVien Foreign key (MaQTCT) References QuaTrinhCongTac(MaQTCT),"+
-	"Constraint KTKL_GiangVien Foreign key (MaKTKL) References KhenThuong_KyLuat(MaKTKL)"+
+	"MaQTCT int NOT NULL,"+
+	"Constraint QTCT_GiangVien Foreign key (MaQTCT) References QuaTrinhCongTac(MaQTCT)"+	
 	");",
 
 	"CREATE TABLE GiangVien_HocHam ( MaGVHH int NOT NULL AUTO_INCREMENT primary key, MaGV char(6)NOT NULL, TenHocHam nvarchar(100) NOT NULL, TGDat Datetime NOT NULL,"+	
