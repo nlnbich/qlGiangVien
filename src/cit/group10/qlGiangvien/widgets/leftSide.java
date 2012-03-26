@@ -113,6 +113,12 @@ public class leftSide extends CustomComponent implements Constants, ItemClickLis
 			newWindow.setName(sub) ;	
 			QlgiangvienApplication.getInstance().setNewWindow(newWindow) ;
     	}
+    	if (sub.equals(MAIN_MENU_TEXT_ADMIN[2][1])) {
+    		
+    		newWindow = new WindowAddNewTeacher();					
+			newWindow.setName(sub) ;	
+			QlgiangvienApplication.getInstance().setNewWindow(newWindow) ;
+    	}
     			
 		
 		

@@ -535,33 +535,33 @@ private String getUpdateCongTac(){
 	}
 	}	
 	
-	private String getUpdateNghienCuu(){
-//		
-		String sql;
-		DateFormat dateFormatter = DateFormat.getDateInstance(DateFormat.SHORT);
-		try {
-			
-		sql = "update GiangVien_NghienCuuKH set ";
-		try {
-			sql += "NgayTG=' " + dateFormatter.format(txtNghienCuuNgayThamGia.getValue()) + " ', ";
-		} catch (Exception e) {
-			// TODO Auto-generated catch block
-			sql += "null" + ",";
-		}
-		try {
-			sql += "NgayKT=' " + dateFormatter.format(txtNghienCuuNgayKT.getValue()) + " ', ";
-		} catch (Exception e) {
-			// TODO Auto-generated catch block
-			sql += "null" + ",";
-		}
-		System.out.println("Nghien cuu : "+sql) ;
-		return sql ;
-		} catch (Exception e) {
-			
-			System.out.println("rightContentAddNewTeacher: "+ e.toString()) ;
-			return "" ;
-	}
-	}	
+//	private String getUpdateNghienCuu(){
+////		
+//		String sql;
+//		DateFormat dateFormatter = DateFormat.getDateInstance(DateFormat.SHORT);
+//		try {
+//			
+//		sql = "update GiangVien_NghienCuuKH set ";
+//		try {
+//			sql += "NgayTG=' " + dateFormatter.format(txtNghienCuuNgayThamGia.getValue()) + " ', ";
+//		} catch (Exception e) {
+//			// TODO Auto-generated catch block
+//			sql += "null" + ",";
+//		}
+//		try {
+//			sql += "NgayKT=' " + dateFormatter.format(txtNghienCuuNgayKT.getValue()) + " ', ";
+//		} catch (Exception e) {
+//			// TODO Auto-generated catch block
+//			sql += "null" + ",";
+//		}
+//		System.out.println("Nghien cuu : "+sql) ;
+//		return sql ;
+//		} catch (Exception e) {
+//			
+//			System.out.println("rightContentAddNewTeacher: "+ e.toString()) ;
+//			return "" ;
+//	}
+//	}	
 	
 	
 	//===================================================for build interface
