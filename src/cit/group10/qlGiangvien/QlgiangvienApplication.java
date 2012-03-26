@@ -11,6 +11,7 @@ import cit.group10.qlGiangvien.widgets.*;
 import cit.group10.qlGiangvien.constants.*;
 import cit.group10.qlGiangvien.databaseConnect.AuthenticateAccount;
 import cit.group10.qlGiangvien.databaseConnect.CompletedDatabase;
+import cit.group10.qlGiangvien.databaseConnect.GetDataFromDatabase;
 import cit.group10.qlGiangvien.install.CreateFileInformationDatabase;
 import cit.group10.qlGiangvien.install.InstallWindow;
 
@@ -67,6 +68,7 @@ public class QlgiangvienApplication extends Application implements Constants,dbC
 		
 		
 		try {
+			
 			
 			CreateFileInformationDatabase check_status = new CreateFileInformationDatabase();
 			
@@ -141,7 +143,7 @@ public class QlgiangvienApplication extends Application implements Constants,dbC
 			
 			if (result.equals("1")) 
 			{
-				
+				GetDataFromDatabase.getIDGiangVien() ;
 				this.setUser(result+user) ;
 				AdminFunctions newWindow = new AdminFunctions();
 				newWindow.setName("Admin Functions");			
@@ -193,6 +195,9 @@ public class QlgiangvienApplication extends Application implements Constants,dbC
 				
 		
 		try {
+			Window current = this.getMainWindow() ;
+			
+			
 			Collection<Window> c = QlgiangvienApplication.getInstance().getWindows() ;
 			boolean exist = c.contains(layoutWindow) ;
 			
@@ -205,6 +210,7 @@ public class QlgiangvienApplication extends Application implements Constants,dbC
 			
 			getMainWindow().open(new ExternalResource(layoutWindow.getURL()));
 			setMainWindow(layoutWindow);
+			this.removeWindow(current) ;
 		} catch (Exception e) {
 			
 			System.out.println("QlgiangvienApplication :" + e.toString()) ;

@@ -1,12 +1,12 @@
 package cit.group10.qlGiangvien.detailedInfo.researching ;
 
 import java.sql.Connection;
+import java.sql.SQLException;
 import java.sql.Statement;
 
 import cit.group10.qlGiangvien.QlgiangvienApplication;
 import cit.group10.qlGiangvien.constants.Constants;
 import cit.group10.qlGiangvien.constants.dbConnect;
-
 import cit.group10.qlGiangvien.widgets.*;
 
 
@@ -16,6 +16,7 @@ import com.vaadin.data.util.sqlcontainer.SQLContainer;
 import com.vaadin.data.util.sqlcontainer.connection.JDBCConnectionPool;
 import com.vaadin.data.util.sqlcontainer.connection.SimpleJDBCConnectionPool;
 import com.vaadin.data.util.sqlcontainer.query.FreeformQuery;
+import com.vaadin.data.util.sqlcontainer.query.TableQuery;
 import com.vaadin.terminal.Sizeable;
 import com.vaadin.ui.*;
 import com.vaadin.ui.Button.ClickEvent;
@@ -29,8 +30,11 @@ public class WindowResearching extends Window implements Constants, dbConnect {
 	HorizontalLayout mainLayout  ;
 	rightContentRegistedResearching rContentModify ;
 	Table table ;
-	
+	Object itemRemove ;
 	Window subwindow ;
+	SQLContainer container ; 
+	
+	String  idDelete ;
 	
 	
 	
@@ -55,7 +59,7 @@ public class WindowResearching extends Window implements Constants, dbConnect {
 		mainLayout.addComponent(rContentList) ;
 		mainLayout.setExpandRatio(rContentList, 1.0f) ;
 		
-		rContentModify = new rightContentRegistedResearching() ;
+		rContentModify = new rightContentRegistedResearching(1) ;
 		rContentModify.setWidth("100%") ;		
 		
 		
@@ -79,50 +83,71 @@ public class WindowResearching extends Window implements Constants, dbConnect {
 		
 		//--------------------bl
 		Label title = new Label("<center><h1>Danh sách đề tài<h1></center>", Label.CONTENT_XHTML) ;
-//		
-//		
-//		
-//		
-		final BeanItemContainer<ResearchingBean> beans = new BeanItemContainer<ResearchingBean>(ResearchingBean.class);
 
-		table = new Table("de tai",beans) ;
-		
+		table = new Table() ;		
 		table.setWidth("100%") ;
 		table.setPageLength(10) ;
 	
 		rContentList.addComponent(title) ;
 		rContentList.addComponent(table) ;
-		
-		Connection conn = null;
-        Statement stmt = null;
-        
+		       
         try{
             JDBCConnectionPool pool = new SimpleJDBCConnectionPool(
 					 JDBC_DRIVER,DB_URL+QlgiangvienApplication.DB_DBNAME, QlgiangvienApplication.DB_USER, QlgiangvienApplication.DB_PASS);
 		 
 
-           String mysql = "SELECT * from NghienCuuKH" ;
                     
-           FreeformQuery query = new FreeformQuery(mysql, pool, "MaCTNC") ;
+           TableQuery query = new TableQuery("NghienCuuKH", pool) ;           
+           query.setVersionColumn("OPTLOCK");
            
-           SQLContainer container = new SQLContainer(query);
-          
+           
+           
+           
+           container = new SQLContainer(query);
+//           container.setAutoCommit(true) ;
+//          container.re
            table.setContainerDataSource(container) ;
+       
            
+//           public Component generateCell(Table source, Object itemId,
+//                   Object columnId) {
+//               Item item = table.getItem(itemId);
+//               String fn = (String) item.getItemProperty(
+//                       ExampleUtil.PERSON_PROPERTY_FIRSTNAME).getValue();
+//               String ln = (String) item.getItemProperty(
+//                       ExampleUtil.PERSON_PROPERTY_LASTNAME).getValue();
+//               
+////               item.getItemProperty(id)
+
+           
+//           table.get
            
            
            
            table.addGeneratedColumn("Chinh Sua", new Table.ColumnGenerator() {
-               public Component generateCell(Table source, Object itemId, Object columnId) {
-                   Item item = table.getItem(itemId);                   
-                   
+               /**
+			 * 
+			 */
+			private static final long serialVersionUID = 1L;
+
+			public Component generateCell(Table source, Object itemId, Object columnId) {
+                   final Item item = table.getItem(itemId);  
+                                     
                    Button btnModify = new Button("Chinh Sua", new Button.ClickListener() {                       
-              			@Override
+              			/**
+					 * 
+					 */
+					private static final long serialVersionUID = 1L;
+
+						@Override
               			public void buttonClick(ClickEvent event) {
               				
 //              				rContentList.setVisible(false);
 //              				rContentModify.setVisible(true);
+//              				
+              				rContentModify.setUpdateValue(item) ;
               				
+
               				mainLayout.removeComponent(rContentList) ;
               				mainLayout.addComponent(rContentModify) ;		
               				mainLayout.setExpandRatio(rContentModify, 1.0f) ;
@@ -130,25 +155,34 @@ public class WindowResearching extends Window implements Constants, dbConnect {
               				
               			}
                       });
-                   
-                   
-                   
                    return btnModify;
                }
            });
+           
+           
+           
+           
+           
+           
            confirmDelete();
            table.addGeneratedColumn("Xoa", new Table.ColumnGenerator() {
-               public Component generateCell(Table source, Object itemId, Object columnId) {
+               public Component generateCell(Table source, final Object itemId, Object columnId) {
                    
-//            	   Item item = table.getItem(itemId);      
-                   
-                   Button btnModify = new Button("Close", new Button.ClickListener() {                       
+            	   
+                   Button btnModify = new Button("Xoa", new Button.ClickListener() {                       
            			@Override
            			public void buttonClick(ClickEvent event) {
            				
            				if (subwindow.getParent() == null) {
                                                     
+//           					itemRemove = table.getItem(itemId) ;
+           					Item i = table.getItem(itemId) ;
+           					idDelete = i.getItemProperty("MaCTNC").getValue().toString() ;
+           					System.out.println(idDelete) ;
+//           					table.removeItem(itemRemove) ;
                             getWindow().addWindow(subwindow);
+                            
+                            
                         }
            			}
                    });
@@ -197,7 +231,27 @@ public class WindowResearching extends Window implements Constants, dbConnect {
 			@Override
 			public void buttonClick(ClickEvent event) {
 				
-				(subwindow.getParent()).removeWindow(subwindow);
+				
+				try {
+					(subwindow.getParent()).removeWindow(subwindow);
+//					flagDelete = true ;
+//
+//					Item i = table.getItem(itemRemove) ;
+//   					System.out.println("in xoa :"+flagDelete) ;
+//					
+//					Item item = table.getItem(itemRemove);
+//					System.out.println(item.toString()) ;
+//					String sql = "delete from NghienCuuKH where MaCTNC ='"+item.getItemProperty("MaCTNC").getValue().toString()+ "' ;" ;
+//					
+//					UpdateDatabase.executeSqlStatement(sql) ;
+					
+					
+				} catch (Exception e) {
+//					
+					System.out.println(e.toString()) ;
+				}
+				
+				
 			}
         });
         // The components added to the window are actually added to the window's
@@ -207,8 +261,6 @@ public class WindowResearching extends Window implements Constants, dbConnect {
 		
 		
 	}//end of confirmDelete
-	
-	
 	
 	
 	

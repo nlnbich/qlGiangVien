@@ -9,7 +9,6 @@ import cit.group10.qlGiangvien.detailedInfo.researching.ResearchingBean;
 import cit.group10.qlGiangvien.widgets.*;
 
 
-import com.google.gwt.dev.generator.ast.Statement;
 import com.vaadin.data.util.BeanItemContainer;
 import com.vaadin.data.util.sqlcontainer.SQLContainer;
 import com.vaadin.data.util.sqlcontainer.connection.JDBCConnectionPool;
@@ -68,11 +67,7 @@ public class WindowSogiangvientheotungbomon1 extends Window implements Constants
 		table.setWidth("100%") ;
 		rContent.addComponent(title) ;
 		rContent.addComponent(table) ;
-		
-		
-
-		Connection conn = null;
-        Statement stmt = null;
+				
         try{
            
           
