@@ -6,6 +6,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.Collection;
+import java.util.List;
 
 import com.vaadin.data.Item;
 import com.vaadin.data.Property;
@@ -19,6 +20,7 @@ import com.vaadin.data.util.sqlcontainer.query.FreeformQuery;
 import cit.group10.qlGiangvien.QlgiangvienApplication;
 import cit.group10.qlGiangvien.constants.Constants;
 import cit.group10.qlGiangvien.constants.dbConnect;
+
 
 public class GetDataFromDatabase implements dbConnect {
 
@@ -182,7 +184,7 @@ public class GetDataFromDatabase implements dbConnect {
 		}
 	}// end of getMaCV
 
-	public static String get() {
+	public static String getMaBM() {
 
 		Connection conn = null;
 		Statement stmt = null;
@@ -199,30 +201,29 @@ public class GetDataFromDatabase implements dbConnect {
 					QlgiangvienApplication.DB_PASS);
 			stmt = conn.createStatement();
 
-			ResultSet rs = stmt
-					.executeQuery("select max(MaCV) as max from GiangVien_BoMon ;");
+			ResultSet rs = stmt.executeQuery("select max(MaBM) as max from BoMon ;");
 
 			String re = "";
 
 			if (rs.next()) {
 				s = rs.getString(1);
 				if (s.equals("NULL"))
-					s = "0";
+					s = "BM0000";
 			}
 			rs.close();
 			stmt.close();
 			conn.close();
 
-			return String.valueOf((Integer.valueOf(s) + 1));
+			return increateID(s);
 
 		} catch (Exception ex) {
 
 			System.out.println("UpdateDatabase >> getID: " + ex.getMessage());
-			return "1";
+			return "BM0001";
 		}
 	}// end of getMaCV
-
-	public static String getMaGV_HV() {
+	
+	public static String getMaCTNC() {
 
 		Connection conn = null;
 		Statement stmt = null;
@@ -239,28 +240,29 @@ public class GetDataFromDatabase implements dbConnect {
 					QlgiangvienApplication.DB_PASS);
 			stmt = conn.createStatement();
 
-			ResultSet rs = stmt
-					.executeQuery("select max(MaGVHV) as max from GiangVien_HocVi ;");
+			ResultSet rs = stmt.executeQuery("select max(MaCTNC) as max from NghienCuuKH ;");
 
 			String re = "";
 
 			if (rs.next()) {
 				s = rs.getString(1);
 				if (s.equals("NULL"))
-					s = "0";
+					s = "NC0000";
 			}
 			rs.close();
 			stmt.close();
 			conn.close();
 
-			return String.valueOf((Integer.valueOf(s) + 1));
+			return increateID(s);
 
 		} catch (Exception ex) {
 
 			System.out.println("UpdateDatabase >> getID: " + ex.getMessage());
-			return "1";
+			return "NC0001";
 		}
 	}// end of getMaCV
+
+	
 
 	static private String increateID(String id) {
 
@@ -320,7 +322,7 @@ public class GetDataFromDatabase implements dbConnect {
 		}
 	}// getBoMon
 
-	static public boolean insertGiangVien(String[] sql) {
+	static public boolean insertGiangVien(List sql) {
 
 		Connection conn = null;
 		Statement stmt = null;
@@ -344,17 +346,21 @@ public class GetDataFromDatabase implements dbConnect {
 			// Creating Statement
 			stmt = conn.createStatement();
 			
-			for (int i = 0; i < sql.length; i++) {
+			
+			
+			
+			java.util.Iterator it=sql.iterator();
 
-				stmt.executeUpdate(sql[i]);
-				System.out.println(sql);
-			}
+	        while(it.hasNext())
+	        {
+	          String value=(String)it.next();
+	          System.out.println("Value :"+value);
+	          stmt.executeUpdate(value);
+	        }
 
 			conn.commit();
 			conn.close();
 			stmt.close();
-			rs.close();
-			System.out.println("Connection Closed..........");
 			return true;
 
 		} catch (Exception e) {
@@ -363,4 +369,189 @@ public class GetDataFromDatabase implements dbConnect {
 			return false;
 		}
 	}//end  of insertGiangVien
+	
+	
+	static public Item getDataGVCoBan(String ma) {
+
+		try {
+
+			JDBCConnectionPool pool = new SimpleJDBCConnectionPool(JDBC_DRIVER,
+					DB_URL + QlgiangvienApplication.DB_DBNAME,
+					QlgiangvienApplication.DB_USER,
+					QlgiangvienApplication.DB_PASS);
+
+			String st_query = "select * from GiangVien where MaGV='" + ma
+					+ "' ;";
+			FreeformQuery query = new FreeformQuery(st_query, pool, "MaGV");
+			SQLContainer result = new SQLContainer(query);
+
+			Collection c = result.getItemIds();
+			if (c.size() < 1) return null ;
+			Item item = result.getItem(c.toArray()[0]);
+			// Property role = item.getItemProperty(COLLUMM_ROLE) ;
+			// System.out.println("get name first : "+ role) ;
+			return item;
+
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			return null;
+		}
+	}// end of getDataGVCoBan
+	
+	static public Item getDataGVCongTac(String ma) {
+
+		try {
+
+			JDBCConnectionPool pool = new SimpleJDBCConnectionPool(JDBC_DRIVER,
+					DB_URL + QlgiangvienApplication.DB_DBNAME,
+					QlgiangvienApplication.DB_USER,
+					QlgiangvienApplication.DB_PASS);
+
+			String st_query = "select * from QuaTrinhCongTac where MaGV='" + ma
+					+ "' ;";
+			FreeformQuery query = new FreeformQuery(st_query, pool, "MaQTCT");
+			SQLContainer result = new SQLContainer(query);
+
+			Collection c = result.getItemIds();
+			if (c.size() < 1) return null ;
+			Item item = result.getItem(c.toArray()[0]);
+			// Property role = item.getItemProperty(COLLUMM_ROLE) ;
+			// System.out.println("get name first : "+ role) ;
+			return item;
+
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			return null;
+		}
+	}// end of getDataGVCongTac
+	static public Item getDataGVBoMon(String ma) {
+
+		try {
+
+			JDBCConnectionPool pool = new SimpleJDBCConnectionPool(JDBC_DRIVER,
+					DB_URL + QlgiangvienApplication.DB_DBNAME,
+					QlgiangvienApplication.DB_USER,
+					QlgiangvienApplication.DB_PASS);
+
+			String st_query = "select * from GiangVien_BoMon where MaGV='" + ma
+					+ "' ;";
+			FreeformQuery query = new FreeformQuery(st_query, pool, "MaCV");
+			SQLContainer result = new SQLContainer(query);
+
+			Collection c = result.getItemIds();
+			if (c.size() < 1) return null ;
+			Item item = result.getItem(c.toArray()[0]);
+			// Property role = item.getItemProperty(COLLUMM_ROLE) ;
+			// System.out.println("get name first : "+ role) ;
+			return item;
+
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			return null;
+		}
+	}// end of getDataGVCoBan
+	static public SQLContainer getDataGVHocHam(String ma) {
+
+		try {
+
+			JDBCConnectionPool pool = new SimpleJDBCConnectionPool(JDBC_DRIVER,
+					DB_URL + QlgiangvienApplication.DB_DBNAME,
+					QlgiangvienApplication.DB_USER,
+					QlgiangvienApplication.DB_PASS);
+
+			String st_query = "select * from GiangVien_HocHam where MaGV='" + ma
+					+ "' ;";
+			FreeformQuery query = new FreeformQuery(st_query, pool, "MaGVHH");
+			SQLContainer result = new SQLContainer(query);
+
+			
+			return result;
+
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			return null;
+		}
+	}// end of getDataGVHocHam
+	
+	static public SQLContainer getDataGVHocVi(String ma) {
+
+		try {
+
+			JDBCConnectionPool pool = new SimpleJDBCConnectionPool(JDBC_DRIVER,
+					DB_URL + QlgiangvienApplication.DB_DBNAME,
+					QlgiangvienApplication.DB_USER,
+					QlgiangvienApplication.DB_PASS);
+
+			String st_query = "select * from GiangVien_HocVi where MaGV='" + ma
+					+ "' ;";
+			FreeformQuery query = new FreeformQuery(st_query, pool, "MaGVHV");
+			SQLContainer result = new SQLContainer(query);
+			
+			return result;
+
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			return null;
+		}
+	}// end of getDataGVHocVi
+	static public Item getDataGVDangNhap(String ma) {
+
+		try {
+
+			JDBCConnectionPool pool = new SimpleJDBCConnectionPool(JDBC_DRIVER,
+					DB_URL + QlgiangvienApplication.DB_DBNAME,
+					QlgiangvienApplication.DB_USER,
+					QlgiangvienApplication.DB_PASS);
+
+			String st_query = "select * from Account where MaGV='" + ma	+ "' ;";
+			FreeformQuery query = new FreeformQuery(st_query, pool, "accountID");
+			SQLContainer result = new SQLContainer(query);
+
+			Collection c = result.getItemIds();
+			if (c.size() < 1) return null ;
+			
+			Item item = result.getItem(c.toArray()[0]);
+			// Property role = item.getItemProperty(COLLUMM_ROLE) ;
+			// System.out.println("get name first : "+ role) ;
+			return item;
+
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			return null;
+		}
+	}// end of getDataGVCoBan
+	
+	static public SQLContainer getDataGVNghienCuu(String ma) {
+
+		try {
+
+			JDBCConnectionPool pool = new SimpleJDBCConnectionPool(JDBC_DRIVER,
+					DB_URL + QlgiangvienApplication.DB_DBNAME,
+					QlgiangvienApplication.DB_USER,
+					QlgiangvienApplication.DB_PASS);
+
+			String st_query = "select * from GiangVien_NghienCuuKH where MaGV='" + ma + "' ;";
+			FreeformQuery query = new FreeformQuery(st_query, pool, "MaGV, MaCTNC");
+			SQLContainer result = new SQLContainer(query);
+			
+			return result;
+
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			return null;
+		}
+	}// end of getDataGVCoBan
+	
+	
+	
+	
+	
+	
 }

@@ -1,6 +1,7 @@
 package cit.group10.qlGiangvien.widgets;
 
 import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 import cit.group10.qlGiangvien.constants.Constants;
@@ -120,7 +121,7 @@ public class rightContentRegistedResearching extends CustomComponent implements 
 		
 		String sql;
 		try {
-			DateFormat dateFormatter = DateFormat.getDateInstance(DateFormat.SHORT);
+			DateFormat dateFormatter = new SimpleDateFormat("yyyy-MM-dd");
 			sql = "insert into NghienCuuKH values (";
 			sql += "'" + txtMaDeTaiNC.getValue().toString() + "' ," ;
 			sql += "'" + txtName.getValue().toString() + "',";
@@ -203,14 +204,14 @@ public class rightContentRegistedResearching extends CustomComponent implements 
 	public void setUpdateValue(final Item item){
 		
 		try{
-		
+		System.out.println(item.toString()) ;
 		txtMaDeTaiNC.setValue(item.getItemProperty("MaCTNC").getValue().toString()) ;//.item.getItemProperty("MaNCKH").getValue().toString() ;		
 		txtName.setValue(item.getItemProperty("TenCTNC").getValue().toString());
 //		txtNgayKT.setValue(item.getItemProperty("NgayKT").getValue().toString());
 //		txtNgayBD.setValue(item.getItemProperty("NgayBD").getValue().toString());
 		txtNgayKT.setValue("1999-12-12");
 		txtContent.setValue(item.getItemProperty("NoiDungTH").getValue().toString());
-//		comboBoxCap.select(item.getItemProperty("LoaiCTNC").getValue().toString());
+		comboBoxCap.select(item.getItemProperty("LoaiCTNC").getValue().toString());
 		}
 		catch(Exception e){
 			System.out.println("rightContentRegistedResearching :"+ e.toString()) ;
@@ -266,7 +267,8 @@ public class rightContentRegistedResearching extends CustomComponent implements 
 		
 		//txtMaDeTaiNC
 		txtMaDeTaiNC= new TextField();
-		if (func==1) txtMaDeTaiNC.setEnabled(false) ;
+		
+		if (func==1) txtMaDeTaiNC.setEnabled(false) ; else txtMaDeTaiNC.setValue(GetDataFromDatabase.getMaCTNC()) ;
 		txtMaDeTaiNC.setCaption("Ma de tai");
 		txtMaDeTaiNC.setImmediate(false);
 		txtMaDeTaiNC.setWidth("100.0%");

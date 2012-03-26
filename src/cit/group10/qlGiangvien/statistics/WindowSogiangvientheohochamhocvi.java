@@ -39,7 +39,7 @@ public class WindowSogiangvientheohochamhocvi extends Window implements Constant
 		mainLayout.setMargin(false);
 		mainLayout.setSpacing(true);
 		
-		mainLayout.addComponent(new leftSide());
+		mainLayout.addComponent(new leftSideThongKe());
 		rContent = new VerticalLayout() ;
 		rContent.setWidth("100%") ;
 				

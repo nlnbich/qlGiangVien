@@ -31,9 +31,11 @@ public class WindowManagerSubject extends Window implements Constants, dbConnect
 	HorizontalLayout mainLayout  ;
 	rightContentAddNewSubject rContentModify ;
 	Table table ;
+	Button btnAdd ;
 	Object itemRemove ;
 	Window subwindow ;
 	SQLContainer container ; 
+	
 	
 	String  idDelete ;
 	
@@ -65,6 +67,24 @@ public class WindowManagerSubject extends Window implements Constants, dbConnect
 		
 		
 		
+		btnAdd = new Button("Them Bo Mon") ;
+		btnAdd.setImmediate(false);
+		btnAdd.setWidth("-1px");
+		btnAdd.setHeight("-1px");		
+		btnAdd.addListener(new Button.ClickListener() {
+			
+			@Override
+			public void buttonClick(ClickEvent event) {
+
+				rContentModify = new rightContentAddNewSubject(0) ;
+				mainLayout.removeComponent(rContentList) ;
+  				mainLayout.addComponent(rContentModify) ;		
+  				mainLayout.setExpandRatio(rContentModify, 1.0f) ;
+			}
+		}) ;
+		
+		
+		
 				
 		
 
@@ -90,6 +110,7 @@ public class WindowManagerSubject extends Window implements Constants, dbConnect
 		table.setPageLength(10) ;
 	
 		rContentList.addComponent(title) ;
+		rContentList.addComponent(btnAdd) ;
 		rContentList.addComponent(table) ;
 		       
         try{
@@ -105,22 +126,7 @@ public class WindowManagerSubject extends Window implements Constants, dbConnect
            container.setAutoCommit(true) ;
 //          container.re
            table.setContainerDataSource(container) ;
-       
-           
-//           public Component generateCell(Table source, Object itemId,
-//                   Object columnId) {
-//               Item item = table.getItem(itemId);
-//               String fn = (String) item.getItemProperty(
-//                       ExampleUtil.PERSON_PROPERTY_FIRSTNAME).getValue();
-//               String ln = (String) item.getItemProperty(
-//                       ExampleUtil.PERSON_PROPERTY_LASTNAME).getValue();
-//               
-////               item.getItemProperty(id)
-
-           
-//           table.get
-           
-           
+ 
            
            table.addGeneratedColumn("Chinh Sua", new Table.ColumnGenerator() {
                /**
@@ -130,7 +136,7 @@ public class WindowManagerSubject extends Window implements Constants, dbConnect
 
 			public Component generateCell(Table source, Object itemId, Object columnId) {
                   
-final Item item = table.getItem(itemId);  
+				final Item item = table.getItem(itemId);  
                                      
                    Button btnModify = new Button("Chinh Sua", new Button.ClickListener() {                       
               			/**
@@ -144,9 +150,9 @@ final Item item = table.getItem(itemId);
 //              				rContentList.setVisible(false);
 //              				rContentModify.setVisible(true);
 //              				
-              				rContentModify.setUpdateValue(item) ;
               				
-
+              				rContentModify = new rightContentAddNewSubject(1) ;
+              				rContentModify.setUpdateValue(item) ;
               				mainLayout.removeComponent(rContentList) ;
               				mainLayout.addComponent(rContentModify) ;		
               				mainLayout.setExpandRatio(rContentModify, 1.0f) ;
@@ -165,7 +171,12 @@ final Item item = table.getItem(itemId);
            
            confirmDelete();
            table.addGeneratedColumn("Xoa", new Table.ColumnGenerator() {
-               public Component generateCell(Table source, final Object itemId, Object columnId) {
+               /**
+			 * 
+			 */
+			private static final long serialVersionUID = 1L;
+
+			public Component generateCell(Table source, final Object itemId, Object columnId) {
                    
             	   
                    Button btnModify = new Button("Xoa", new Button.ClickListener() {                       
@@ -175,9 +186,9 @@ final Item item = table.getItem(itemId);
            				if (subwindow.getParent() == null) {
                                                     
 //           					itemRemove = table.getItem(itemId) ;
-           					Item i = table.getItem(itemId) ;
-           					idDelete = i.getItemProperty("MaBM").getValue().toString() ;
-           					System.out.println(idDelete) ;
+//           					Item i = table.getItem(itemId) ;
+//           					idDelete = i.getItemProperty("MaBM").getValue().toString() ;
+//           					System.out.println(idDelete) ;
 //           					table.removeItem(itemRemove) ;
                             getWindow().addWindow(subwindow);
                             

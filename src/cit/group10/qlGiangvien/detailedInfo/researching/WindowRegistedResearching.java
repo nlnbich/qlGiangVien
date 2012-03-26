@@ -33,7 +33,7 @@ public class WindowRegistedResearching extends Window implements Constants {
 		rContent = new rightContentRegistedResearching(0) ;
 		rContent.setWidth("100%") ;
 		
-		mainLayout.addComponent(new leftSide());
+		mainLayout.addComponent(new leftSideDeTai());
 		mainLayout.addComponent(rContent) ;
 		mainLayout.setExpandRatio(rContent, 1.0f) ;
 

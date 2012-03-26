@@ -16,6 +16,7 @@ import com.vaadin.data.util.sqlcontainer.SQLContainer;
 import com.vaadin.data.util.sqlcontainer.connection.JDBCConnectionPool;
 import com.vaadin.data.util.sqlcontainer.connection.SimpleJDBCConnectionPool;
 import com.vaadin.data.util.sqlcontainer.query.FreeformQuery;
+import com.vaadin.data.util.sqlcontainer.query.TableQuery;
 import com.vaadin.terminal.Sizeable;
 import com.vaadin.ui.*;
 import com.vaadin.ui.Button.ClickEvent;
@@ -98,19 +99,29 @@ public class WindowManagerTeacher extends Window implements Constants, dbConnect
 		 
 
            String mysql = "SELECT * from GiangVien" ;
-                    
-           FreeformQuery query = new FreeformQuery(mysql, pool, "MaGV") ;
            
-           SQLContainer container = new SQLContainer(query);
-          
+           TableQuery query = new TableQuery("GiangVien", pool) ;           
+           query.setVersionColumn("OPTLOCK");
+           
+           SQLContainer  container = new SQLContainer(query);
+           container.setAutoCommit(true) ;
+//          container.re
            table.setContainerDataSource(container) ;
+           
+           
+                    
+//           FreeformQuery query = new FreeformQuery(mysql, pool, "MaGV") ;
+           
+//           container = new SQLContainer(query);
+          
+//           table.setContainerDataSource(container) ;
            
            
            
            
            table.addGeneratedColumn("Chinh Sua", new Table.ColumnGenerator() {
                public Component generateCell(Table source, Object itemId, Object columnId) {
-                   Item item = table.getItem(itemId);                   
+                   final Item item = table.getItem(itemId);                   
                    
                    Button btnModify = new Button("Chinh Sua", new Button.ClickListener() {                       
               			@Override
@@ -118,7 +129,8 @@ public class WindowManagerTeacher extends Window implements Constants, dbConnect
               				
 //              				rContentList.setVisible(false);
 //              				rContentModify.setVisible(true);
-              				
+              				System.out.println(item.toString()) ;
+              				rContentModify.setUpdateData(item.getItemProperty("MaGV").getValue().toString() ) ;
               				mainLayout.removeComponent(rContentList) ;
               				mainLayout.addComponent(rContentModify) ;		
               				mainLayout.setExpandRatio(rContentModify, 1.0f) ;
@@ -138,7 +150,7 @@ public class WindowManagerTeacher extends Window implements Constants, dbConnect
                    
 //            	   Item item = table.getItem(itemId);      
                    
-                   Button btnModify = new Button("Close", new Button.ClickListener() {                       
+                   Button btnModify = new Button("Xoa", new Button.ClickListener() {                       
            			@Override
            			public void buttonClick(ClickEvent event) {
            				
@@ -152,17 +164,6 @@ public class WindowManagerTeacher extends Window implements Constants, dbConnect
                    return btnModify;
                }
            });
-
-           
-           
-           
-           
-           
-           
-           
-           
-           
-           
            
         }
         catch(Exception e){

@@ -38,7 +38,7 @@ public class WindowDetaitheonam extends Window implements Constants, dbConnect {
 		mainLayout.setMargin(false);
 		mainLayout.setSpacing(true);
 		
-		mainLayout.addComponent(new leftSide());
+		mainLayout.addComponent(new leftSideThongKe());
 		rContent = new VerticalLayout() ;
 		rContent.setWidth("100%") ;
 				

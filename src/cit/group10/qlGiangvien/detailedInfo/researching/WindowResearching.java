@@ -52,7 +52,7 @@ public class WindowResearching extends Window implements Constants, dbConnect {
 		mainLayout.setMargin(false);
 		mainLayout.setSpacing(true);
 		
-		mainLayout.addComponent(new leftSide());
+		mainLayout.addComponent(new leftSideDeTai());
 		
 		rContentList = new VerticalLayout() ;
 		rContentList.setWidth("100%") ;
