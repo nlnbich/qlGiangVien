@@ -75,8 +75,8 @@ public class WindowSogiangvientheotungbomon1 extends Window implements Constants
 					 JDBC_DRIVER,DB_URL+QlgiangvienApplication.DB_DBNAME, QlgiangvienApplication.DB_USER, QlgiangvienApplication.DB_PASS);
 		 
 
-           String mysql = "select * from BoMon ;" ;
-           FreeformQuery query = new FreeformQuery(mysql, pool, "MaBM") ;
+           String mysql = "select b.TenMH, count(g.MaGV) as 'Số lượng giảng viên' from GiangVien g, GiangVien_BoMon gb,BoMon b where g.MaGV = gb.MaGV and b.MaBM= gb.MaBM group by b.TenMH;";
+           FreeformQuery query = new FreeformQuery(mysql, pool, "TenMH") ;
            
            SQLContainer container = new SQLContainer(query);
           

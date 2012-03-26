@@ -29,7 +29,7 @@ public class WindowDetaitheonam extends Window implements Constants, dbConnect {
 	public WindowDetaitheonam() {
 
 		
-		setCaption("Thống kê đề tài theo năm");//Constants.USER_CAPTION) ;
+		setCaption("Thống kê đề tài thực hiện");//Constants.USER_CAPTION) ;
 		
 		
 		HorizontalLayout mainLayout = new HorizontalLayout() ;	
@@ -60,7 +60,7 @@ public class WindowDetaitheonam extends Window implements Constants, dbConnect {
 		
 		
 		//--------------------bl
-		Label title = new Label("<center><h1>Thống kê đề tài theo năm<h1></center>", Label.CONTENT_XHTML) ;
+		Label title = new Label("<center><h1>Thống kê đề tài thực hiện<h1></center>", Label.CONTENT_XHTML) ;
 
 		Table table = new Table("Thống kê") ;
 		
@@ -76,10 +76,10 @@ public class WindowDetaitheonam extends Window implements Constants, dbConnect {
 					 JDBC_DRIVER,DB_URL+QlgiangvienApplication.DB_DBNAME, QlgiangvienApplication.DB_USER, QlgiangvienApplication.DB_PASS);
 		 
 
-           String mysql = "SELECT a.HoTen, b.LoaiCTNC,b.TenCTNC FROM NghienCuuKH b,GiangVien a,GiangVien_NghienCuuKH c" +
-           		"WHERE a.MaGV=c.MaGV and b.MaCTNC=c.MaCTNC" ;
+          String mysql = "select LoaiCTNC, count(MaCTNC) as 'So luong ' from NghienCuuKH group by LoaiCTNC;" ;
+      //      String mysql = "select * from GiangVien_NghienCuuKH;";
                     
-           FreeformQuery query = new FreeformQuery(mysql, pool, "") ;
+           FreeformQuery query = new FreeformQuery(mysql, pool, "LoaiCTNC") ;
            
            SQLContainer container = new SQLContainer(query);
           
