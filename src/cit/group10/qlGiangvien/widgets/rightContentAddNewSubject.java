@@ -126,7 +126,7 @@ public class rightContentAddNewSubject extends CustomComponent {
 		try {
 			System.out.println(item.toString()) ;
 			txtMaBM.setValue(item.getItemProperty("MaBM").getValue().toString()) ;
-			txtTenMB.setValue(item.getItemProperty("TenMH").getValue().toString()) ;
+			txtTenMB.setValue(item.getItemProperty("TenBM").getValue().toString()) ;
 			txtLichsu.setValue(item.getItemProperty("LichSu").getValue().toString()) ;
 			txtNhansu.setValue(item.getItemProperty("NhanSu").getValue().toString()) ;
 			txtGiangday.setValue(item.getItemProperty("GiangDay").getValue().toString()) ;

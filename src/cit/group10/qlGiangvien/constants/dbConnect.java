@@ -30,21 +30,26 @@ public interface dbConnect {
 
 	
 
-	"CREATE TABLE BoMon(MaBM char(6) NOT NULL PRIMARY KEY,	TenMH nvarchar(50) NOT NULL unique," +
+	"CREATE TABLE BoMon(MaBM char(6) NOT NULL PRIMARY KEY,	TenBM nvarchar(50) NOT NULL unique," +
 	" LichSu nvarchar(200),NhanSu nvarchar(200), GiangDay nvarchar(200), NghienCuuPhatTrien nvarchar(200) ) ;" ,
 
-	"CREATE TABLE QuaTrinhCongTac(MaQTCT int NOT NULL AUTO_INCREMENT PRIMARY KEY, HSLuong float NOT NULL, Bac int NOT NULL, NgayBD date NOT NULL) ;" ,
+	
+	"CREATE TABLE GiangVien(MaGV char(6) NOT NULL PRIMARY KEY, HoTen nvarchar(50) NOT NULL, NgaySinh DateTime NOT NULL, " +
+	"GioiTinh nvarchar(3) NOT NULL, DiaChi nvarchar(50) NOT NULL, DienThoai nvarchar(12) NOT NULL, Email nvarchar(50), GhiChu nvarchar(500)"+
+	");",
+	
+	"CREATE TABLE QuaTrinhCongTac(MaQTCT int NOT NULL AUTO_INCREMENT PRIMARY KEY, MaGV char(6) NOT NULL, HSLuong float NOT NULL," +
+	" Bac int NOT NULL, NgayBD date NOT NULL," +
+	"Constraint QuaTrinhCT_GiangVien Foreign key (MaGV) References GiangVien(MaGV) ) ;" ,
+	
+	
 
 	
-	"CREATE TABLE NghienCuuKH(MaCTNC char(6) NOT NULL PRIMARY KEY, TenCTNC nvarchar(200) NOT NULL, LoaiCTNC nvarchar(100) not null, NoiDungTH nvarchar(200), NgayBT date not null, NgayKT date ) ;" ,
+	"CREATE TABLE NghienCuuKH(MaCTNC char(6) NOT NULL PRIMARY KEY, TenCTNC nvarchar(200) NOT NULL, " +
+	"LoaiCTNC nvarchar(100) not null, NoiDungTH nvarchar(200), NgayBT date not null, NgayKT date ) ;" ,
 
 //	"CREATE TABLE KhenThuong_KyLuat(MaKTKL int NOT NULL AUTO_INCREMENT primary key, TenKTKL nvarchar(100) NOT NULL, NoiDung nvarchar(200) NOT NULL) ;" ,
-
-	"CREATE TABLE GiangVien(MaGV char(6) NOT NULL PRIMARY KEY, HoTen nvarchar(50) NOT NULL, NgaySinh DateTime NOT NULL, " +
-	"GioiTinh nvarchar(3) NOT NULL, DiaChi nvarchar(50) NOT NULL, DienThoai nvarchar(12) NOT NULL, Email nvarchar(50), GhiChu nvarchar(500),"+ 
-	"MaQTCT int NOT NULL,"+
-	"Constraint QTCT_GiangVien Foreign key (MaQTCT) References QuaTrinhCongTac(MaQTCT)"+	
-	");",
+	
 
 	"CREATE TABLE GiangVien_HocHam ( MaGVHH int NOT NULL AUTO_INCREMENT primary key, MaGV char(6)NOT NULL, TenHocHam nvarchar(100) NOT NULL, TGDat Datetime NOT NULL,"+	
 	"Constraint GiangVien_GiangVienHocHam Foreign key (MaGV) References GiangVien(MaGV)) ;" ,

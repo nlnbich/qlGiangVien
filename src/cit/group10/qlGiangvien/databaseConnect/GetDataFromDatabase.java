@@ -75,14 +75,15 @@ public class GetDataFromDatabase implements dbConnect {
 					QlgiangvienApplication.DB_PASS);
 			stmt = conn.createStatement();
 
-			ResultSet rs = stmt.executeQuery("select max(MaGV) as max from GiangVien ;");
-			
+			ResultSet rs = stmt
+					.executeQuery("select max(MaGV) as max from GiangVien ;");
+
 			String re = "";
 
-			
 			if (rs.next()) {
 				s = rs.getString(1);
-				if (s.equals("NULL")) s = "GV0000";
+				if (s.equals("NULL"))
+					s = "GV0000";
 
 				System.out.println(">>>>>>>>>>>>>>>>>>> " + s + "--"
 						+ increateID(s));
@@ -91,7 +92,7 @@ public class GetDataFromDatabase implements dbConnect {
 			rs.close();
 			stmt.close();
 			conn.close();
-			
+
 			return increateID(s);
 
 		} catch (Exception ex) {
@@ -100,8 +101,7 @@ public class GetDataFromDatabase implements dbConnect {
 			return "GV0001";
 		}
 	}// end of getIDGiangVien
-	
-	
+
 	public static String getMaQTCT() {
 
 		Connection conn = null;
@@ -119,20 +119,21 @@ public class GetDataFromDatabase implements dbConnect {
 					QlgiangvienApplication.DB_PASS);
 			stmt = conn.createStatement();
 
-			ResultSet rs = stmt.executeQuery("select max(MaQTCT) as max from QuaTrinhCongTac ;");
-			
+			ResultSet rs = stmt
+					.executeQuery("select max(MaQTCT) as max from QuaTrinhCongTac ;");
+
 			String re = "";
 
-			
 			if (rs.next()) {
 				s = rs.getString(1);
-				if (s.equals("NULL")) s = "0";
+				if (s.equals("NULL"))
+					s = "0";
 			}
 			rs.close();
 			stmt.close();
 			conn.close();
-			
-			return   String.valueOf( (Integer.valueOf(s)+1) ) ;
+
+			return String.valueOf((Integer.valueOf(s) + 1));
 
 		} catch (Exception ex) {
 
@@ -140,6 +141,7 @@ public class GetDataFromDatabase implements dbConnect {
 			return "1";
 		}
 	}// end of getIDGiangVien
+
 	public static String getMaCV() {
 
 		Connection conn = null;
@@ -157,20 +159,21 @@ public class GetDataFromDatabase implements dbConnect {
 					QlgiangvienApplication.DB_PASS);
 			stmt = conn.createStatement();
 
-			ResultSet rs = stmt.executeQuery("select max(MaCV) as max from GiangVien_BoMon ;");
-			
+			ResultSet rs = stmt
+					.executeQuery("select max(MaCV) as max from GiangVien_BoMon ;");
+
 			String re = "";
 
-			
 			if (rs.next()) {
 				s = rs.getString(1);
-				if (s.equals("NULL")) s = "0";
+				if (s.equals("NULL"))
+					s = "0";
 			}
 			rs.close();
 			stmt.close();
 			conn.close();
-			
-			return   String.valueOf( (Integer.valueOf(s)+1) ) ;
+
+			return String.valueOf((Integer.valueOf(s) + 1));
 
 		} catch (Exception ex) {
 
@@ -178,6 +181,7 @@ public class GetDataFromDatabase implements dbConnect {
 			return "1";
 		}
 	}// end of getMaCV
+
 	public static String get() {
 
 		Connection conn = null;
@@ -195,20 +199,21 @@ public class GetDataFromDatabase implements dbConnect {
 					QlgiangvienApplication.DB_PASS);
 			stmt = conn.createStatement();
 
-			ResultSet rs = stmt.executeQuery("select max(MaCV) as max from GiangVien_BoMon ;");
-			
+			ResultSet rs = stmt
+					.executeQuery("select max(MaCV) as max from GiangVien_BoMon ;");
+
 			String re = "";
 
-			
 			if (rs.next()) {
 				s = rs.getString(1);
-				if (s.equals("NULL")) s = "0";
+				if (s.equals("NULL"))
+					s = "0";
 			}
 			rs.close();
 			stmt.close();
 			conn.close();
-			
-			return   String.valueOf( (Integer.valueOf(s)+1) ) ;
+
+			return String.valueOf((Integer.valueOf(s) + 1));
 
 		} catch (Exception ex) {
 
@@ -216,6 +221,7 @@ public class GetDataFromDatabase implements dbConnect {
 			return "1";
 		}
 	}// end of getMaCV
+
 	public static String getMaGV_HV() {
 
 		Connection conn = null;
@@ -233,20 +239,21 @@ public class GetDataFromDatabase implements dbConnect {
 					QlgiangvienApplication.DB_PASS);
 			stmt = conn.createStatement();
 
-			ResultSet rs = stmt.executeQuery("select max(MaGVHV) as max from GiangVien_HocVi ;");
-			
+			ResultSet rs = stmt
+					.executeQuery("select max(MaGVHV) as max from GiangVien_HocVi ;");
+
 			String re = "";
 
-			
 			if (rs.next()) {
 				s = rs.getString(1);
-				if (s.equals("NULL")) s = "0";
+				if (s.equals("NULL"))
+					s = "0";
 			}
 			rs.close();
 			stmt.close();
 			conn.close();
-			
-			return   String.valueOf( (Integer.valueOf(s)+1) ) ;
+
+			return String.valueOf((Integer.valueOf(s) + 1));
 
 		} catch (Exception ex) {
 
@@ -254,16 +261,7 @@ public class GetDataFromDatabase implements dbConnect {
 			return "1";
 		}
 	}// end of getMaCV
-	
-	
-	
-	
 
-	
-	
-	
-	
-	
 	static private String increateID(String id) {
 
 		String re = id.substring(0, 2);
@@ -276,11 +274,8 @@ public class GetDataFromDatabase implements dbConnect {
 		return re;
 
 	}
-	
-	
-	
-	
-//===================================== for list
+
+	// ===================================== for list
 	static public SQLContainer getBoMon() {
 
 		try {
@@ -290,20 +285,19 @@ public class GetDataFromDatabase implements dbConnect {
 					QlgiangvienApplication.DB_USER,
 					QlgiangvienApplication.DB_PASS);
 
-			String st_query = "select MaBM, TenMH from BoMon ;";
+			String st_query = "select MaBM, TenBM from BoMon ;";
 			FreeformQuery query = new FreeformQuery(st_query, pool, "MaBM");
 			SQLContainer result = new SQLContainer(query);
 
-			return result ;
-			
+			return result;
+
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 			return null;
 		}
-	}//getBoMon
-	
-	
+	}// getBoMon
+
 	static public SQLContainer getDeTai() {
 
 		try {
@@ -317,14 +311,54 @@ public class GetDataFromDatabase implements dbConnect {
 			FreeformQuery query = new FreeformQuery(st_query, pool, "MaCTNC");
 			SQLContainer result = new SQLContainer(query);
 
-			return result ;
-			
+			return result;
+
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 			return null;
 		}
-	}//getBoMon
-	
+	}// getBoMon
 
+	static public boolean insertGiangVien(String[] sql) {
+
+		Connection conn = null;
+		Statement stmt = null;
+		ResultSet rs = null;
+		
+		try {
+			Class.forName("com.mysql.jdbc.Driver");
+			conn = DriverManager.getConnection(DB_URL
+					+ QlgiangvienApplication.DB_DBNAME,
+					QlgiangvienApplication.DB_USER,
+					QlgiangvienApplication.DB_PASS);
+			// Setting auto commit false
+			conn.setAutoCommit(false);
+			System.out.println("Databese Connection Done........");
+		} catch (Exception e) {
+			System.out.println(e.toString());
+			System.out.println("Error In Connection");
+			return false;
+		}
+		try {
+			// Creating Statement
+			stmt = conn.createStatement();
+			
+			for (int i = 0; i < sql.length; i++) {
+
+				stmt.executeUpdate(sql[1]);
+			}
+
+			conn.commit();
+			conn.close();
+			stmt.close();
+			rs.close();
+			System.out.println("Connection Closed..........");
+			return true;
+
+		} catch (Exception e) {
+			System.out.println("insertGiangVien" +e.toString());
+			return false;
+		}
+	}//end  of insertGiangVien
 }
