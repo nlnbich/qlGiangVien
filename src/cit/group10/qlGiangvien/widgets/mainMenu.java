@@ -228,6 +228,11 @@ public class mainMenu extends CustomComponent implements Constants {
     	String url_parent = "user/" ; //bl-use to assign name for url
     	Window newWindow ;
 //    	final int i = MAIN_MENU_TEXT_USER[0].length+MAIN_MENU_TEXT_USER[1].length+0 ;
+    	
+    	
+    	
+    	
+    	
     	switch(selectedItem.getId()){
     	case 1:
     	case 2:
