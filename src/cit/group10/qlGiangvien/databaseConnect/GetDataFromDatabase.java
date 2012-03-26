@@ -58,7 +58,7 @@ public class GetDataFromDatabase implements dbConnect {
 
 	}// end of func
 
-	public static String getIDGiangVien() {
+	public static String getMaGV() {
 
 		Connection conn = null;
 		Statement stmt = null;
@@ -75,26 +75,24 @@ public class GetDataFromDatabase implements dbConnect {
 					QlgiangvienApplication.DB_PASS);
 			stmt = conn.createStatement();
 
-			ResultSet rs = stmt
-					.executeQuery("select max(id) as max from test ;");
-			String re = "";// (rs.next())..getString("max") ;
+			ResultSet rs = stmt.executeQuery("select max(MaGV) as max from GiangVien ;");
+			
+			String re = "";
 
-			// ResultSet r1 = rs.next() ;
+			
 			if (rs.next()) {
 				s = rs.getString(1);
-				if (s.equals("NULL"))
-					s = "GV0000";
+				if (s.equals("NULL")) s = "GV0000";
 
 				System.out.println(">>>>>>>>>>>>>>>>>>> " + s + "--"
 						+ increateID(s));
 
 			}
-
 			rs.close();
 			stmt.close();
 			conn.close();
+			
 			return increateID(s);
-			// if (re >0 ) return true ; else return false ;
 
 		} catch (Exception ex) {
 
@@ -102,7 +100,170 @@ public class GetDataFromDatabase implements dbConnect {
 			return "GV0001";
 		}
 	}// end of getIDGiangVien
+	
+	
+	public static String getMaQTCT() {
 
+		Connection conn = null;
+		Statement stmt = null;
+
+		String s = "";
+
+		try {
+
+			Class.forName("com.mysql.jdbc.Driver");
+
+			conn = DriverManager.getConnection(DB_URL
+					+ QlgiangvienApplication.DB_DBNAME,
+					QlgiangvienApplication.DB_USER,
+					QlgiangvienApplication.DB_PASS);
+			stmt = conn.createStatement();
+
+			ResultSet rs = stmt.executeQuery("select max(MaQTCT) as max from QuaTrinhCongTac ;");
+			
+			String re = "";
+
+			
+			if (rs.next()) {
+				s = rs.getString(1);
+				if (s.equals("NULL")) s = "0";
+			}
+			rs.close();
+			stmt.close();
+			conn.close();
+			
+			return   String.valueOf( (Integer.valueOf(s)+1) ) ;
+
+		} catch (Exception ex) {
+
+			System.out.println("UpdateDatabase >> getID: " + ex.getMessage());
+			return "1";
+		}
+	}// end of getIDGiangVien
+	public static String getMaCV() {
+
+		Connection conn = null;
+		Statement stmt = null;
+
+		String s = "";
+
+		try {
+
+			Class.forName("com.mysql.jdbc.Driver");
+
+			conn = DriverManager.getConnection(DB_URL
+					+ QlgiangvienApplication.DB_DBNAME,
+					QlgiangvienApplication.DB_USER,
+					QlgiangvienApplication.DB_PASS);
+			stmt = conn.createStatement();
+
+			ResultSet rs = stmt.executeQuery("select max(MaCV) as max from GiangVien_BoMon ;");
+			
+			String re = "";
+
+			
+			if (rs.next()) {
+				s = rs.getString(1);
+				if (s.equals("NULL")) s = "0";
+			}
+			rs.close();
+			stmt.close();
+			conn.close();
+			
+			return   String.valueOf( (Integer.valueOf(s)+1) ) ;
+
+		} catch (Exception ex) {
+
+			System.out.println("UpdateDatabase >> getID: " + ex.getMessage());
+			return "1";
+		}
+	}// end of getMaCV
+	public static String get() {
+
+		Connection conn = null;
+		Statement stmt = null;
+
+		String s = "";
+
+		try {
+
+			Class.forName("com.mysql.jdbc.Driver");
+
+			conn = DriverManager.getConnection(DB_URL
+					+ QlgiangvienApplication.DB_DBNAME,
+					QlgiangvienApplication.DB_USER,
+					QlgiangvienApplication.DB_PASS);
+			stmt = conn.createStatement();
+
+			ResultSet rs = stmt.executeQuery("select max(MaCV) as max from GiangVien_BoMon ;");
+			
+			String re = "";
+
+			
+			if (rs.next()) {
+				s = rs.getString(1);
+				if (s.equals("NULL")) s = "0";
+			}
+			rs.close();
+			stmt.close();
+			conn.close();
+			
+			return   String.valueOf( (Integer.valueOf(s)+1) ) ;
+
+		} catch (Exception ex) {
+
+			System.out.println("UpdateDatabase >> getID: " + ex.getMessage());
+			return "1";
+		}
+	}// end of getMaCV
+	public static String getMaGV_HV() {
+
+		Connection conn = null;
+		Statement stmt = null;
+
+		String s = "";
+
+		try {
+
+			Class.forName("com.mysql.jdbc.Driver");
+
+			conn = DriverManager.getConnection(DB_URL
+					+ QlgiangvienApplication.DB_DBNAME,
+					QlgiangvienApplication.DB_USER,
+					QlgiangvienApplication.DB_PASS);
+			stmt = conn.createStatement();
+
+			ResultSet rs = stmt.executeQuery("select max(MaGVHV) as max from GiangVien_HocVi ;");
+			
+			String re = "";
+
+			
+			if (rs.next()) {
+				s = rs.getString(1);
+				if (s.equals("NULL")) s = "0";
+			}
+			rs.close();
+			stmt.close();
+			conn.close();
+			
+			return   String.valueOf( (Integer.valueOf(s)+1) ) ;
+
+		} catch (Exception ex) {
+
+			System.out.println("UpdateDatabase >> getID: " + ex.getMessage());
+			return "1";
+		}
+	}// end of getMaCV
+	
+	
+	
+	
+
+	
+	
+	
+	
+	
 	static private String increateID(String id) {
 
 		String re = id.substring(0, 2);
@@ -115,7 +276,11 @@ public class GetDataFromDatabase implements dbConnect {
 		return re;
 
 	}
-
+	
+	
+	
+	
+//===================================== for list
 	static public SQLContainer getBoMon() {
 
 		try {

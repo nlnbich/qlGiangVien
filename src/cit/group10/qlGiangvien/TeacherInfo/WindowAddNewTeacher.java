@@ -30,7 +30,7 @@ public class WindowAddNewTeacher extends Window implements Constants {
 		mainLayout.setSpacing(true);
 		
 		
-		rContent = new rightContentAddNewTeacher() ;
+		rContent = new rightContentAddNewTeacher(0) ;
 		rContent.setWidth("100%") ;
 		
 		mainLayout.addComponent(new leftSide());

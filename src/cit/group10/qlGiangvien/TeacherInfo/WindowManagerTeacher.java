@@ -55,7 +55,7 @@ public class WindowManagerTeacher extends Window implements Constants, dbConnect
 		mainLayout.addComponent(rContentList) ;
 		mainLayout.setExpandRatio(rContentList, 1.0f) ;
 		
-		rContentModify = new rightContentAddNewTeacher() ;
+		rContentModify = new rightContentAddNewTeacher(1) ;
 		rContentModify.setWidth("100%") ;		
 		
 		

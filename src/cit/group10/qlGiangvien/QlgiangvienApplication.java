@@ -143,7 +143,7 @@ public class QlgiangvienApplication extends Application implements Constants,dbC
 			
 			if (result.equals("1")) 
 			{
-				GetDataFromDatabase.getIDGiangVien() ;
+				GetDataFromDatabase.getMaGV() ;
 				this.setUser(result+user) ;
 				AdminFunctions newWindow = new AdminFunctions();
 				newWindow.setName("Admin Functions");			
