@@ -62,7 +62,7 @@ public class AuthenticateAccount implements dbConnect {
 			SQLContainer result = new SQLContainer(query) ;
 
 			
-			System.out.println("re count :"+ result.size()+ st_query) ;
+//			System.out.println("re count :"+ result.size()+ st_query) ;
 			
 
 //			 SQLContainer result = new SQLContainer(tq);
@@ -71,12 +71,12 @@ public class AuthenticateAccount implements dbConnect {
 			 result.addContainerFilter(
 					 new And( new Equal("username", user_name),
 					          new Equal("password", password) ) );
-			 System.out.println("re count :"+ result.size()) ;
+//			 System.out.println("re count :"+ result.size()) ;
 			 
 			 Collection c = result.getItemIds(); 
 	         Item item = result.getItem(c.toArray()[0]) ;
 	         Property role = item.getItemProperty(COLLUMM_ROLE) ;
-	         System.out.println("get name first : "+ role) ;
+//	         System.out.println("get name first : "+ role) ;
 			 
 			 
 
@@ -97,48 +97,6 @@ public class AuthenticateAccount implements dbConnect {
 		}
 	}// bl-end of check
 	
-	static public int countTables(){
-				
-		int num = 0 ;
-		
-		try {
-			Class.forName("com.mysql.jdbc.Driver");
-
-			System.out.println("start program");
-
-			Connection conn = null;
-			Statement stmt = null;
-
-			conn = DriverManager.getConnection(DB_URL, USER, PASS);
-			stmt = conn.createStatement();
-			
-			
-			String sql = "select count(*) as num "
-					+ "from information_schema.tables where table_schema='"+DB_USED+ "' ";
-
-			ResultSet rs = stmt.executeQuery(sql);
-			rs.next() ;
-			num = rs.getInt("num") ;
-
-			 
-			System.out.println("number of tables:" + num);
-
-			rs.close(); // Đóng cơ sở dữ liệu
-			stmt.close();
-			conn.close();
-			return num ;
-
-		} catch (Exception e) {
-			// TODO Auto-generated catch block
-			System.out.println(e.toString());
-			return 0 ;
-		}
-
-		
-		
-		
-		
-		
-	}
+	
 
 }

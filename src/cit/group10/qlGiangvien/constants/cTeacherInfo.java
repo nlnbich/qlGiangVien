@@ -26,8 +26,9 @@ public interface cTeacherInfo {
 	
 	
 	public static final List<String> IMPORT_SELECT_CHOICES = Arrays.asList(new String[] {
-            "Berlin", "Brussels", "Helsinki", "Madrid", "Oslo", "Paris",
-            "Stockholm" });
+            "  Giảng viên", "  Bộ môn", "  Quá trình công tác ", "  Nghiên cứu khoa học", "  Học hàm", "  Học vị ",
+            "  khen thưởng - kỹ luật " });
+	
 //	
 //	public static final List<String> IMPORT_SELECT_CHOICES = Arrays.asList(new String[] {
 //            "Berlin", "Brussels", "Helsinki", "Madrid", "Oslo", "Paris",

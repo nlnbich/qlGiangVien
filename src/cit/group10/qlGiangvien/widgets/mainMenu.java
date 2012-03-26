@@ -120,31 +120,30 @@ public class mainMenu extends CustomComponent implements Constants {
 			
 			Window newWindow ;
 			
-			
-			
-			
-			
-			
-			
-			if (userRole==1){		
-			
-				newWindow=menuAdminClickFunction(selectedItem) ;
-			}			
-			else{		
-				newWindow=menuUserClickFunction(selectedItem) ;
-			}	
-			
-			
-			
-			if ( !getApplication().getMainWindow().equals(newWindow) )
-				QlgiangvienApplication.getInstance().setNewWindow(newWindow) ;
-			
-			
-			
-			getWindow().showNotification("in user Action " + selectedItem.getText()
-					+ selectedItem.getId() +"--"
-					+ getApplication().getMainWindow().getClass()					
-					);
+//			try {
+				if (userRole==1){		
+				
+					newWindow=menuAdminClickFunction(selectedItem) ;
+				}			
+				else{		
+					newWindow=menuUserClickFunction(selectedItem) ;
+				}	
+				
+				
+				
+//				if ( !getApplication().getMainWindow().getClass().equals(newWindow.getClass()) )
+					QlgiangvienApplication.getInstance().setNewWindow(newWindow) ;
+				
+				
+				
+//				getWindow().showNotification("in user Action " + selectedItem.getText()
+//						+ selectedItem.getId() +"--"
+//						+ getApplication().getMainWindow().getClass()					
+//						);
+//			} catch (Exception e) {
+//				
+//				System.out.println("mainMenu :"+ e.toString()) ;
+//			}
 			
 		}
 		
@@ -216,7 +215,7 @@ public class mainMenu extends CustomComponent implements Constants {
 			
 		default:
 			newWindow = new AdminFunctions();		
-//			newWindow.setName(url_parent +selectedItem.getText()) ;
+			newWindow.setName(url_parent) ;
 //			QlgiangvienApplication.getInstance().setNewWindow(newWindow) ;					
 				
 		}//end of switch
