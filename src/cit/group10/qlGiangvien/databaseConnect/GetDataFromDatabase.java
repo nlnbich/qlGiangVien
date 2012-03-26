@@ -346,7 +346,8 @@ public class GetDataFromDatabase implements dbConnect {
 			
 			for (int i = 0; i < sql.length; i++) {
 
-				stmt.executeUpdate(sql[1]);
+				stmt.executeUpdate(sql[i]);
+				System.out.println(sql);
 			}
 
 			conn.commit();

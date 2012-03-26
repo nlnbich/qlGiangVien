@@ -264,7 +264,7 @@ public class rightContentAddNewTeacher extends CustomComponent implements cTeach
 		
 		sql += "'" + txtMaGV.getValue().toString() + "' ,";
 		sql += "'" + txtHoTen.getValue().toString()  + "' ," ;
-		sql += "'" + txtGioiTinh.getValue().toString() + "' ," ;
+		
 		
 		
 		try {
@@ -273,7 +273,7 @@ public class rightContentAddNewTeacher extends CustomComponent implements cTeach
 			// TODO Auto-generated catch block
 			sql += "null" + ",";
 		}
-				
+		sql += "'" + txtGioiTinh.getValue().toString() + "' ," ;		
 		sql += "'" + txtDienThoai.getValue().toString() + "' ," ;
 		sql += "'" + txtThongTinEmail.getValue().toString() + "' ," ;
 		sql += "'" + txtDiaChi.getValue().toString() + "' ,";
