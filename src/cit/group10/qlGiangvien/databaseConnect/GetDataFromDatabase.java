@@ -358,6 +358,7 @@ public class GetDataFromDatabase implements dbConnect {
 
 		} catch (Exception e) {
 			System.out.println("insertGiangVien" +e.toString());
+			e.printStackTrace() ;
 			return false;
 		}
 	}//end  of insertGiangVien
