@@ -45,6 +45,7 @@ public class QlgiangvienApplication extends Application implements Constants,dbC
 	public static  String DB_DBNAME ="";
 	public static  String DB_USER ="";
 	public static  String DB_PASS="" ;
+	public static  String DB_MaUSER="" ;
 	
 	
 	

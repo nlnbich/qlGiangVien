@@ -12,24 +12,23 @@ public interface Constants {
 	
 	//user
 	static final String[][] MAIN_MENU_TEXT_USER ={ 
-			{"Trang chủ", "Thông tin giảng viên", "Đề tài nghiên cứu"},
+			{"Trang chủ", "Thông tin giảng viên"},
 			{},			
-			{"Thông tin cá nhân", "Thông tin công tác","Học hàm, học vị", "Khen thưởng, kỷ luật"},
-			{"Đề tài đã làm", "Đăng ký đề tài mới"}			
+			{},
+			{}			
 		};
 	static final String[] MAIN_MENU_TEXT_USER_ICON ={"img/home.png", "img/personal.png", "img/research.png"};
 			
 	
 	//admin
 	static final String[][] MAIN_MENU_TEXT_ADMIN={ 
-		{"Trang chủ", "Quản lý giảng viên", "Đề tài nghiên cứu","Thống kê", "Tìm kiếm" },
+		{"Trang chủ", "Quản lý giảng viên", "Đề tài nghiên cứu","Thống kê"},
 		{},			
 		{"Thêm giảng viên", "Cập nhật/Xóa giảng viên", "Quản lý bộ môn", "Import thông tin giảng viên"},
 		{"Danh sách đề tài", "Đăng ký đề tài mới"},
-		{"Số đề tài trong thực hiện", "Số giảng viên theo từng bộ môn", "Số giảng viên theo học hàm, học vị"},
-		{"Tìm theo tên", "Tìm theo bộ môn", "Tìm theo học hàm, học vị"}
+		{"Số đề tài trong thực hiện", "Số giảng viên theo từng bộ môn", "Số giảng viên theo học hàm, học vị"}		
 	};
-	static final String[] MAIN_MENU_TEXT_ADMIN_ICON ={"img/home.png", "img/personal.png","img/research.png", "img/statistics.png", "img/search.png"};
+	static final String[] MAIN_MENU_TEXT_ADMIN_ICON ={"img/home.png", "img/personal.png","img/research.png", "img/statistics.png"};
 	
 
 	

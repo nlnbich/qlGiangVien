@@ -1,6 +1,7 @@
 package cit.group10.qlGiangvien ;
 
 import cit.group10.qlGiangvien.constants.Constants;
+import cit.group10.qlGiangvien.install.CreateFileInformationDatabase;
 
 import cit.group10.qlGiangvien.widgets.*;
 import com.vaadin.ui.*;
@@ -19,6 +20,8 @@ public class LoginWindow extends Window implements Constants{
 	
 	public LoginWindow() {
 		
+		
+//		getWindow().showNotification(CreateFileInformationDatabase.getPathFileConfi()) ;
 		Label heading = new Label() ;
 		heading.setContentMode(Label.CONTENT_XHTML) ;
 		heading.setValue(TITLE_LOGIN) ;	
@@ -66,7 +69,7 @@ public class LoginWindow extends Window implements Constants{
 				try{
 					System.out.println("in login :"+(String)loginField.getValue()+ (String)passwordField.getValue()) ;
 					QlgiangvienApplication.getInstance().authenticatedUser((String)loginField.getValue(), (String)passwordField.getValue());
-					getWindow().showNotification("in click button") ;
+//					getWindow().showNotification("in click button") ;
 										
 				}
 				catch(Exception e){ getWindow().showNotification("eer in click button") ;}

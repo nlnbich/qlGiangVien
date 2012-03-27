@@ -25,10 +25,10 @@ public class AdminFunctions extends Window {
 		
 
 		mainLayout.addComponent(new leftSide());
-		rightContentSample info = new rightContentSample() ;
-		info.setWidth("100%") ;
-		mainLayout.addComponent(info) ;
-		mainLayout.setExpandRatio(info, 1.0f) ;
+//		rightContentSample info = new rightContentSample() ;
+//		info.setWidth("100%") ;
+//		mainLayout.addComponent(info) ;
+//		mainLayout.setExpandRatio(info, 1.0f) ;
 
 		
 		VerticalLayout v = new VerticalLayout() ;

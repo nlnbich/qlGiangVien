@@ -14,7 +14,7 @@ public class UserFunctions extends Window implements Constants {
 
 	private static final long serialVersionUID = 1L;	
 	private mainMenu mm ;
-	infoUser rightContent  ;
+	rightContentAddNewTeacher rightContent  ;
 	
 	
 	
@@ -24,6 +24,8 @@ public class UserFunctions extends Window implements Constants {
 		setCaption(Constants.USER_CAPTION) ;
 		
 		
+		
+		
 		HorizontalLayout mainLayout = new HorizontalLayout() ;	
 		mainLayout.setImmediate(false);
 		mainLayout.setWidth(Constants.WIDTH_MAX, Sizeable.UNITS_PIXELS);
@@ -31,7 +33,8 @@ public class UserFunctions extends Window implements Constants {
 		mainLayout.setSpacing(true);
 		
 		mainLayout.addComponent(new leftSide());
-		rightContent = new infoUser() ;
+		rightContent = new rightContentAddNewTeacher(1) ;
+		rightContent.setUpdateData(QlgiangvienApplication.DB_MaUSER.toString()) ;
 		rightContent.setWidth("100%") ;
 		
 		
